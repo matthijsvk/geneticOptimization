@@ -46,9 +46,9 @@ function sorted=sortPopulationCrowding(unsorted,V,M,N)
 
     % remove duplicates
     sorted = unique(sorted,'rows','stable');
-    
-    % remove everything that isn't rank 1
     popSize = size(sorted,1);
+
+    % remove everything that isn't rank 1
     looper = 1;
     while looper<=popSize
         if (sorted(looper,rankColumn) > 1.0)
@@ -66,7 +66,9 @@ function sorted=sortPopulationCrowding(unsorted,V,M,N)
     rankEndIndex = popSize;
     rankStartIndex = 1;
     
-    while size(sorted,1) > N
+    
+    while popSize > N
+            
             rankEndIndex = popSize;
             % rankEndIndex is the position of the last element of this rank
             for i=rankStartIndex:rankEndIndex
@@ -97,6 +99,8 @@ function sorted=sortPopulationCrowding(unsorted,V,M,N)
             sorted = sorted(1:end-1,:);
             popSize = size(sorted,1);
     end
+    
+    
         
 end
 

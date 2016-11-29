@@ -3,7 +3,7 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
 %           0 if the GA must stop
     crowdingFlag = 0;
     stopFlag=0;
-    if it > 100
+    if it > 10000
         stopFlag=1;
     end
 
@@ -14,9 +14,12 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         crowdingFlag = 1;
         % if median of crowding distance < x, most values are well
         % distributed -> we can stop
-        if (median(population(:,crowdingDistanceColumn)) > stopLimit) && (mean(population(:,crowdingDistanceColumn).^-1) < 1/stopLimit)
+        crowdingDistances = population(:,crowdingDistanceColumn);
+        crowdingDistancesFixed = crowdingDistances(isfinite(crowdingDistances(:, 1)), :); % remove infinites
+                
+        if (median(population(:,crowdingDistanceColumn)) > stopLimit) && (mean(crowdingDistancesFixed) < stopLimit)
             stopFlag = 1;
-            disp(['We re stopping at the ',num2str(it), ' th iteration']);
+            disp(['We are stopping at the ',num2str(it), ' th iteration']);
         end
     end
     

@@ -6,7 +6,7 @@ function sorted=sortPopulation(unsorted,V,M)
 % else % Multi-objective case : non-domination sorting
     
     %% Ranking  
-    nbRanks = 3;
+    nbRanks = 2;
     
     popSize = size(unsorted);
     popLength = popSize(1);
@@ -43,6 +43,8 @@ function sorted=sortPopulation(unsorted,V,M)
     
     % sort based on rank
     sorted = sortrows(unsorted,rankColumn);
+    
+    % remove duplicates
     sorted = unique(sorted,'rows','stable');
     popSize = size(sorted,1);
     
