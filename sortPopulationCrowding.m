@@ -63,14 +63,12 @@ function sorted=sortPopulationCrowding(unsorted,V,M,N)
     %% Crowding Distance
     %V+M+1 = rank,  V+M+2 = crowdingDistance
     crowdingDistanceColumn = V+M+2;
-    rankEndIndex = popSize;
     rankStartIndex = 1;
-    
-    
+      
     while popSize > N
-            
             rankEndIndex = popSize;
-            % rankEndIndex is the position of the last element of this rank
+            
+            % set all crowding distances to zero
             for i=rankStartIndex:rankEndIndex
                 sorted(i,crowdingDistanceColumn) = 0;  %V+M+1 = rank,  V+M+2 = crowdingDistance
             end
@@ -91,11 +89,12 @@ function sorted=sortPopulationCrowding(unsorted,V,M,N)
                                 ( sorted(i+1,V+m) - sorted(i-1,V+m) ) / (f_max - f_min) ;
                 end
             end
-
+            
+            % sort descending based on crowdingDistance
             sorted(rankStartIndex:rankEndIndex,:) = ...
                 sortrows(sorted(rankStartIndex:rankEndIndex,:), -crowdingDistanceColumn);
             
-            % remove last element
+            % remove lowest scoring element, then calculate again
             sorted = sorted(1:end-1,:);
             popSize = size(sorted,1);
     end

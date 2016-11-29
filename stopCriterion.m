@@ -1,4 +1,4 @@
-function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn, stopLimit) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
+function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
 % Return :  1 if the GA must continue 
 %           0 if the GA must stop
     crowdingFlag = 0;
@@ -17,10 +17,21 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         crowdingDistances = population(:,crowdingDistanceColumn);
         crowdingDistancesFixed = crowdingDistances(isfinite(crowdingDistances(:, 1)), :); % remove infinites
                 
-        if (median(population(:,crowdingDistanceColumn)) > stopLimit) && (mean(crowdingDistancesFixed) < stopLimit)
+        % idea 1: avg and mean must be lower than limit
+        % problem: different stopLimit for each number of population+
+        % often takes very long
+%         if (mean(crowdingDistancesFixed) > 0.135) && ...
+%               (median(crowdingDistancesFixed) > 0.135)
+%             stopFlag = 1;
+%         end
+        
+        % idea 2: lowest crowding distance has to be x% of the average
+        % (without counting Inf of course)
+        if (min(crowdingDistancesFixed) > 0.7*median(crowdingDistancesFixed)) ...
+            && ( max(crowdingDistancesFixed) < 1.2*median(crowdingDistancesFixed) )
             stopFlag = 1;
-            disp(['We are stopping at the ',num2str(it), ' th iteration']);
         end
+        
     end
     
     

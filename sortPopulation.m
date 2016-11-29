@@ -6,7 +6,7 @@ function sorted=sortPopulation(unsorted,V,M)
 % else % Multi-objective case : non-domination sorting
     
     %% Ranking  
-    nbRanks = 2;
+    nbRanks = 3;
     
     popSize = size(unsorted);
     popLength = popSize(1);
