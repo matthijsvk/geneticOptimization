@@ -23,6 +23,7 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
     
 end
 
+  % USING THE MONTE CARLO METHOD
   % for the old and new population: 
     %   - get bounding box for both (take largest element in each
     %   dimension, doesn't matter if its' in old or new)
