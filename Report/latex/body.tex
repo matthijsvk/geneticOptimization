@@ -25,6 +25,7 @@ We save the rank and crowdingDistance columns, then unnormalize the population p
 \subsection{sortPopulation} \label{sortPopulation}
 This function finds individuals that are on the same Pareto-optimal curve, and puts those in the same rank. The best rank is two, the worst one is rank three (it doesn't make sense to have more ranks as 
 \subsubsection{Ranking}
+- number of ranks?? -> more = better Binary Selection
 
 \subsubsection{Crowding Distance}
 The algorithm thus far doesn't give us good coverage of the whole Pareto-optimal solution space. It generates lots of individuals close together, which contain almost the same information. 
@@ -41,6 +42,12 @@ A problem arises however: when two individuals are close together both of their 
 % insert picture of nice separation
 
 \subsection{selectionTournament} \label{selectionTournament}
+
+\begin{enumerate}
+	\item Binary tournament selection
+	\item Best + random
+	\item more probability if good
+\end{enumerate}
 \subsection{geneticOperators} \label{geneticOperators}
 \subsection{cropPopulation} \label{cropPopulation}
 \subsection{stopCriterion} \label{stopCriterion}
