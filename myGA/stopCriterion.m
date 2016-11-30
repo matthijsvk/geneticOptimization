@@ -33,7 +33,6 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         end
         
 %         if ( mean(cdVector) / (max(cdVector) - min(cdVector)) > 1.3) 
-% %       if ( mean(cdVector) / (std(cdVector)) > 8) 
 %             stopFlag = 1;
 %             disp(['We re stopping at the ',num2str(it), ' th iteration']);
 %         end
