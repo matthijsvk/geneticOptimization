@@ -30,9 +30,9 @@ function children=geneticOperators(parents,NC,P,intervalScalar,sd_mut,V,M,f,lb,u
 
         else % mutation from parent 1 or parent 2
             if rand() <= 0.5
-                child = sd_mut.*randn(1,1) + firstParent;
+                child = sd_mut.*randn(1,V) + firstParent;
         	else
-                child = sd_mut.*randn(1,1) + secondParent;
+                child = sd_mut.*randn(1,V) + secondParent;
             end   
         end
         

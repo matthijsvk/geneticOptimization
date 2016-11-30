@@ -39,19 +39,15 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         
         % idea 3: don't take the absolute max and min, but 25th percentile from top
         % and bottom
-%         if (min(cdVector) > 0.8*mean(cdVector(N/4:end)) ) ...
-%             && ( min(cdVector(1:N/4)) < 1.25*mean(cdVector(N/4:end)) )
-%             stopFlag = 1;
-%         end
+        if (min(cdVector) > 0.8*mean(cdVector(N/4:end)) ) ...
+            && ( min(cdVector(1:N/4)) < 1.25*mean(cdVector(N/4:end)) )
+            stopFlag = 1;
+        end
         
         % idea 4: values higher than middle of 1 and avg(cdVector) are not
         % considered
-        cdVectorReduced = cdVector(cdVector < 0.5*(1+median(cdVector)) );
+        cdVectorReduced = (cdVector < 0.5*(1+median(cdVector))
         
-        if (min(cdVectorReduced) > 0.75*median(cdVectorReduced ) ) ...
-            && ( max(cdVectorReduced) < 1.25*median(cdVectorReduced) )
-            stopFlag = 1;
-        end
     end
 end
 

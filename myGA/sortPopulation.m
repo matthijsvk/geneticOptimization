@@ -43,7 +43,6 @@ function sorted=sortPopulation(unsorted,V,M)
     
     % sort based on rank
     sorted = sortrows(unsorted,rankColumn);
-    sorted = unique(sorted,'rows','stable');
     popSize = size(sorted,1);
     
     %% Crowding Distance
