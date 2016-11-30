@@ -14,23 +14,29 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         crowdingFlag = 1;
         % if median of crowding distance < x, most values are well
         % distributed -> we can stop
-        crowdingDistances = population(:,crowdingDistanceColumn);
-        crowdingDistancesFixed = crowdingDistances(isfinite(crowdingDistances(:, 1)), :); % remove infinites
-                
+        cdVector = population( :, crowdingDistanceColumn );
+        cdVector = cdVector( cdVector < Inf ); 
+        
         % idea 1: avg and mean must be lower than limit
         % problem: different stopLimit for each number of population+
         % often takes very long
-%         if (mean(crowdingDistancesFixed) > 0.135) && ...
-%               (median(crowdingDistancesFixed) > 0.135)
+%         if (mean(cdVector) > 0.135) && ...
+%               (median(cdVector) > 0.135)
 %             stopFlag = 1;
 %         end
         
         % idea 2: lowest crowding distance has to be x% of the average
         % (without counting Inf of course)
-        if (min(crowdingDistancesFixed) > 0.7*median(crowdingDistancesFixed)) ...
-            && ( max(crowdingDistancesFixed) < 1.2*median(crowdingDistancesFixed) )
+        if (min(cdVector) > 0.75*median(cdVector)) ...
+            && ( max(cdVector) < 1.25*median(cdVector) )
             stopFlag = 1;
         end
+        
+%         if ( mean(cdVector) / (max(cdVector) - min(cdVector)) > 1.3) 
+% %       if ( mean(cdVector) / (std(cdVector)) > 8) 
+%             stopFlag = 1;
+%             disp(['We re stopping at the ',num2str(it), ' th iteration']);
+%         end
         
     end
     
