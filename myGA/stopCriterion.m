@@ -3,7 +3,7 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
 %           0 if the GA must stop
     crowdingFlag = 0;
     stopFlag=0;
-    if it > 10000
+    if it > 500
         stopFlag=1;
     end
 
@@ -48,8 +48,8 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         % considered
         cdVectorReduced = cdVector(cdVector < 0.5*(1+median(cdVector)) );
         
-        if (min(cdVectorReduced) > 0.75*median(cdVectorReduced ) ) ...
-            && ( max(cdVectorReduced) < 1.25*median(cdVectorReduced) )
+        if (min(cdVectorReduced) > 0.8*median(cdVectorReduced ) ) ...
+            && ( max(cdVectorReduced) < 1.2*median(cdVectorReduced) )
             stopFlag = 1;
         end
     end

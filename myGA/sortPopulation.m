@@ -1,9 +1,9 @@
 function sorted=sortPopulation(unsorted,V,M)
 
-% if M==1
-%    % To be written
-%     sorted = sortrows(unsorted,V+1);
-% else % Multi-objective case : non-domination sorting
+if M==1
+   % To be written
+    sorted = sortrows(unsorted,V+1);
+else % Multi-objective case : non-domination sorting
     
     %% Ranking  
     nbRanks = 3;

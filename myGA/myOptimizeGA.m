@@ -18,10 +18,7 @@ sd_mut_end = 0.2;
 intervalScalar = 1.4;   % scale the parent interval to create more variation 
 %                         % and not get stuck in local minimum because you always stay in between the parents
 
-% p= num2cell([10    1.7540    0.8386    1   1    1.2476])
-% [N, P_end, sd_mut_end, NP, NC, intervalScalar] = p{:}
-
-verbose=0;
+verbose=1;
 
 %% GENETIC ALGORITHM
 
@@ -30,10 +27,11 @@ disp('initPopulation')
 
 % manually set some reasonably good starting values
 %               N P sd_mut NPMult NCMult intervalScalar score rank crowding
-population= [   32, 0.5, 0.1, 0.5, 32, 1.3;
-                25, 0.8, 0.3, 0.7, 20, 1.1;
-                20, 0.6, 0.05, 1.0, 0, 1.5;
-                28, 0.3, 0.15, 0.4, 0.9, 1.2];
+population= [   32, 0.5, 0.1, 0.5, 0.95, 1.3;
+                25, 0.8, 0.3, 0.8, 0.8, 1.1;
+                20, 0.6, 0.05, 1, 0.75, 1.5;
+                28, 0.3, 0.15, 2.4, 0.9, 1.2];
+population = normalizePopulation(population, lb, ub)
 population= [population,zeros(size(population,1),M),ones(size(population,1),1),zeros(size(population,1),1)];
 % add some random till we fill the population
 randomPopulation=initPopulation(N-size(population,1),V,M);
