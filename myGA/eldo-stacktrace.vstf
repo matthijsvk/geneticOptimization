@@ -1,0 +1,32 @@
+Stack Trace Dump
+Program = /esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe (v7.11_1.1)
+Date = Fri Dec  2 13:39:39 2016
+# Level    PC      Function Name+offset  filename
+#====================================================
+#   0  0x0000000000ae87d0: <unknown @0xae87d0>
+#   1  0x0000000000ae8858: eldo_dump_callstack+0x5f [eldo_64.exe]
+#   2  0x00000000009cec93: FAULT_exit+0x23d [eldo_64.exe]
+#   3  0x00007feb2a83d100: +0xf100 [libpthread.so.0]
+#   4  0x0000000001a1b8a1: <unknown @0x1a1b8a1>
+#   5  0x0000000001a1bb1d: <unknown @0x1a1bb1d>
+#   6  0x0000000001a1c3e9: <unknown @0x1a1c3e9>
+#   7  0x0000000001a1defa: child_feat_status+0xea [eldo_64.exe]
+#   8  0x0000000001a1a247: core_Mheap_stat+0x267 [eldo_64.exe]
+#   9  0x0000000001a1a453: <unknown @0x1a1a453>
+#  10  0x0000000001a1a9af: core_Mheap_allocv+0xef [eldo_64.exe]
+#  11  0x0000000001a140c9: <unknown @0x1a140c9>
+#  12  0x0000000001a14826: <unknown @0x1a14826>
+#  13  0x00000000010e3509: eldo_flexGetLicense_internal_queue+0x64 [eldo_64.exe]
+#  14  0x00000000010e371d: eldo_flexGetLicense+0x9a [eldo_64.exe]
+#  15  0x00000000010e3b24: ask_flex_token+0x74 [eldo_64.exe]
+#  16  0x0000000000ebda27: get_flex_token+0xf [eldo_64.exe]
+#  17  0x0000000000ebe13a: <unknown @0xebe13a>
+#  18  0x0000000000ebee62: protomu+0xc34 [eldo_64.exe]
+#  19  0x0000000000e6151f: eldoprince+0x639 [eldo_64.exe]
+#  20  0x000000000078cb43: aeldosub+0x618 [eldo_64.exe]
+#  21  0x000000000078d532: aeldo+0x2cb [eldo_64.exe]
+#  22  0x00000000010e2f29: main+0x69 [eldo_64.exe]
+#  23  0x00007feb25e30b15: __libc_start_main+0xf5 [libc.so.6]
+#  24  0x00000000007610a9: <unknown @0x7610a9>
+# End of Stack Trace
+

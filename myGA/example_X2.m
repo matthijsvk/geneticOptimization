@@ -13,7 +13,7 @@ V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 
 
-nbTests = 100;
+nbTests = 10;
 totIt = zeros(nbTests,1);
 totRunTime = zeros(nbTests,1);
 for i=1:nbTests

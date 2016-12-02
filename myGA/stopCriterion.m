@@ -15,7 +15,7 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         % if median of crowding distance < x, most values are well
         % distributed -> we can stop
         cdVector = population( :, crowdingDistanceColumn );
-        cdVector = cdVector( cdVector < Inf ); 
+        cdVector = cdVector( isfinite(cdVector)); 
         
         % idea 1: avg and mean must be lower than limit
         % problem: different stopLimit for each number of population+
@@ -46,11 +46,12 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         
         % idea 4: values higher than middle of 1 and avg(cdVector) are not
         % considered
-        cdVectorReduced = cdVector(cdVector < 0.5*(1+median(cdVector)) );
-        
-        if (min(cdVectorReduced) > 0.8*median(cdVectorReduced ) ) ...
-            && ( max(cdVectorReduced) < 1.2*median(cdVectorReduced) )
-            stopFlag = 1;
+        cdVector = cdVector(cdVector < 0.5*(1+median(cdVector)) );
+        if (size(cdVector) > N/4) % if lots of NaN or Inf, don't stop the algorithm
+            if (min(cdVectoReduced) > 0.8*median(cdVector ) ) ...
+                && ( max(cdVector) < 1.2*median(cdVector) )
+                stopFlag = 1;
+            end
         end
     end
 end

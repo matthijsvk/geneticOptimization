@@ -1,0 +1,576 @@
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : r0364010@pc-klas1-16.esat.kuleuven.be
+*** OS    : \S [VCO = aol]
+*** CPU   :
+    Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz
+    Number of physical processors     : 1
+    Hyper-Threading Technology        : disabled
+    Number of cpu cores               : 4
+    Number of logical processors      : 4
+*** Freq  : 3363.500MHz
+*** Cache : 6144 KB
+*** MEM   : 7910216 kB
+*** Date  : Fri Dec  2 14:04:40 2016
+
+/esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/circuit3/ac 
+
+
+***** PRE-PROCESSING ...
+
+1******* 2-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******14:04:40******
+
+0
+
+0****     INPUT LISTING                                               
+
+0***********************************************************************
+    2  .OPTION compat
+    3  .LIB model
+    4  
+    5  ** INCLUDING LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+    1  *  T58F SPICE BSIM3 VERSION 3.1 PARAMETERS
+    2  * 
+    3  * SPICE 3f5 Level 8, Star-HSPICE Level 49, UTMOST Level 8
+    4  * 
+    5  * DATE: Oct 31/05
+    6  * LOT: T58F                  WAF: 9005
+    7  * Temperature_parameters=Default
+    8  * http://www.ee.iitm.ac.in/~nagendra/cadinfo/tsmc018.lib
+    9  
+   10  .MODEL CMOSN NMOS (                                LEVEL   = 49
+   11  +VERSION = 3.1            TNOM    = 27             TOX     = 4.1E-9
+   12  +XJ      = 1E-7           NCH     = 2.3549E17      VTH0    = 0.3662473
+   13  +K1      = 0.5864999      K2      = 1.127266E-3    K3      = 1E-3
+   14  +K3B     = 0.0294061      W0      = 1E-7           NLX     = 1.630684E-7
+   15  +DVT0W   = 0              DVT1W   = 0              DVT2W   = 0
+   16  +DVT0    = 1.2064649      DVT1    = 0.4215486      DVT2    = 0.0197749
+   17  +U0      = 273.8094484    UA      = -1.40499E-9    UB      = 2.408323E-18
+   18  +UC      = 6.504826E-11   VSAT    = 1.355009E5     A0      = 2
+   19  +AGS     = 0.4449958      B0      = 1.901075E-7    B1      = 4.99995E-6
+   20  +KETA    = -0.0164863     A1      = 3.868769E-4    A2      = 0.4640272
+   21  +RDSW    = 123.3376355    PRWG    = 0.5            PRWB    = -0.197728
+   22  +WR      = 1              WINT    = 0              LINT    = 1.690044E-8
+   23  +XL      = 0              XW      = -1E-8          DWG     = -4.728719E-9
+   24  +DWB     = -2.452411E-9   VOFF    = -0.0948017     NFACTOR = 2.1860065
+   25  +CIT     = 0              CDSC    = 2.4E-4         CDSCD   = 0
+   26  +CDSCB   = 0              ETA0    = 2.230928E-3    ETAB    = 6.028975E-5
+   27  +DSUB    = 0.0145467      PCLM    = 1.3822069      PDIBLC1 = 0.1762787
+   28  +PDIBLC2 = 1.66653E-3     PDIBLCB = -0.1           DROUT   = 0.7694691
+   29  +PSCBE1  = 8.91287E9      PSCBE2  = 7.349607E-9    PVAG    = 1.685917E-3
+   30  +DELTA   = 0.01           RSH     = 6.7            MOBMOD  = 1
+   31  +PRT     = 0              UTE     = -1.5           KT1     = -0.11
+   32  +KT1L    = 0              KT2     = 0.022          UA1     = 4.31E-9
+   33  +UB1     = -7.61E-18      UC1     = -5.6E-11       AT      = 3.3E4
+   34  +WL      = 0              WLN     = 1              WW      = 0
+   35  +WWN     = 1              WWL     = 0              LL      = 0
+   36  +LLN     = 1              LW      = 0              LWN     = 1
+   37  +LWL     = 0              CAPMOD  = 2              XPART   = 0.5
+   38  +CGDO    = 8.23E-10       CGSO    = 8.23E-10       CGBO    = 1E-12
+   39  +CJ      = 9.466429E-4    PB      = 0.8            MJ      = 0.3820266
+   40  +CJSW    = 2.608154E-10   PBSW    = 0.8            MJSW    = 0.102322
+   41  +CJSWG   = 3.3E-10        PBSWG   = 0.8            MJSWG   = 0.102322
+   42  +CF      = 0              PVTH0   = -2.199373E-3   PRDSW   = -0.9368961
+   43  +PK2     = 1.593254E-3    WKETA   = -2.880976E-3   LKETA   = 7.165078E-3
+   44  +PU0     = 6.777519       PUA     = 5.505418E-12   PUB     = 8.84133E-25
+   45  +PVSAT   = 2.006286E3     PETA0   = 1.003159E-4    PKETA   = -6.759277E-3
+   46  +NOIMOD=2.0E+00		NOIA=1.3182567385564E+19
+   47  +NOIB=144543.977074592 NOIC=-1.24515784572817E-12	EF=0.92 EM=41000000 )
+   48  *
+   49  *
+   50  * flicker noise parameters above added manually from some other process
+   51  * 
+   52  .MODEL CMOSP PMOS (                                LEVEL   = 49
+   53  +VERSION = 3.1            TNOM    = 27             TOX     = 4.1E-9
+   54  +XJ      = 1E-7           NCH     = 4.1589E17      VTH0    = -0.3906012
+   55  +K1      = 0.5341312      K2      = 0.0395326      K3      = 0
+   56  +K3B     = 7.4916211      W0      = 1E-6           NLX     = 1.194072E-7
+   57  +DVT0W   = 0              DVT1W   = 0              DVT2W   = 0
+   58  +DVT0    = 0.5060555      DVT1    = 0.2423835      DVT2    = 0.1
+   59  +U0      = 115.6894042    UA      = 1.573746E-9    UB      = 1.874308E-21
+   60  +UC      = -1E-10         VSAT    = 1.130982E5     A0      = 1.9976555
+   61  +AGS     = 0.4186945      B0      = 1.949178E-7    B1      = 6.422908E-7
+   62  +KETA    = 0.0166345      A1      = 0.4749146      A2      = 0.300003
+   63  +RDSW    = 198.321294     PRWG    = 0.5            PRWB    = -0.4986647
+   64  +WR      = 1              WINT    = 0              LINT    = 2.94454E-8
+   65  +XL      = 0              XW      = -1E-8          DWG     = -2.798724E-8
+   66  +DWB     = -4.83797E-10   VOFF    = -0.095236      NFACTOR = 2
+   67  +CIT     = 0              CDSC    = 2.4E-4         CDSCD   = 0
+   68  +CDSCB   = 0              ETA0    = 1.035504E-3    ETAB    = -4.358398E-4
+   69  +DSUB    = 1.816555E-3    PCLM    = 1.3299898      PDIBLC1 = 1.766563E-3
+   70  +PDIBLC2 = 7.728395E-7    PDIBLCB = -1E-3          DROUT   = 1.011891E-3
+   71  +PSCBE1  = 4.872184E10    PSCBE2  = 5E-10          PVAG    = 0.0209921
+   72  +DELTA   = 0.01           RSH     = 7.7            MOBMOD  = 1
+   73  +PRT     = 0              UTE     = -1.5           KT1     = -0.11
+   74  +KT1L    = 0              KT2     = 0.022          UA1     = 4.31E-9
+   75  +UB1     = -7.61E-18      UC1     = -5.6E-11       AT      = 3.3E4
+   76  +WL      = 0              WLN     = 1              WW      = 0
+   77  +WWN     = 1              WWL     = 0              LL      = 0
+   78  +LLN     = 1              LW      = 0              LWN     = 1
+   79  +LWL     = 0              CAPMOD  = 2              XPART   = 0.5
+   80  +CGDO    = 6.35E-10       CGSO    = 6.35E-10       CGBO    = 1E-12
+   81  +CJ      = 1.144521E-3    PB      = 0.8468686      MJ      = 0.4099522
+   82  +CJSW    = 2.490749E-10   PBSW    = 0.8769118      MJSW    = 0.3478565
+   83  +CJSWG   = 4.22E-10       PBSWG   = 0.8769118      MJSWG   = 0.3478565
+   84  +CF      = 0              PVTH0   = 2.302018E-3    PRDSW   = 9.0575312
+   85  +PK2     = 1.821914E-3    WKETA   = 0.0222457      LKETA   = -1.495872E-3
+   86  +PU0     = -1.5580645     PUA     = -6.36889E-11   PUB     = 1E-21
+   87  +PVSAT   = 49.8420442     PETA0   = 2.827793E-5    PKETA   = -2.536564E-3 
+   88  + NOIMOD=2.0E+00		NOIA=3.57456993317604E+18		NOIB=2500
+   89  + NOIC=2.61260020285845E-11	EF=1.1388				EM=41000000 )
+   90  *
+   91  *
+   92  * flicker noise parameters above added manually from some other process
+   93  * 
+   94  
+    5  ** END OF LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+    5  .GLOBAL 0 
+    6        * R1 R2 w1  w2 wbias Vbias, VcommonMode
+    7  .PARAM X1=1, X2=1, X3=1, X4=1, X5=1, X6=1, X7=1
+    8  
+    9  R1 VDD VOUT1 'X1'
+   10  R2 VDD VOUT2 'X2'
+   11  
+   12  * drain gate source bulk
+   13  M1 VOUT1 VIN ACGND 0 CMOSN W='X3' L=0.18U
+   14  M2 VOUT2 VINNEG ACGND 0 CMOSN W='X4' L=0.18U
+   15  M3 ACGND VBIAS GND 0 CMOSN W='X5' L=0.18U
+   16  
+   17  C1 VOUT1 0 5F
+   18  C2 VOUT2 0 5F
+   19  
+   20  * vdd and vbias
+   21  V0 vdd 0 dc 1.8
+   22  vbias vbias 0 dc 'X6'
+   23  
+   24  * common mode
+   25  V1 vin 0 dc 'X7'
+   26  
+   27  * vin+ and vin-. flip connections => differential
+   28  V2 vin vinNeg ac 0.001
+   29  
+   30  
+   31  .AC dec 10 100 1G data=list
+   32  
+   33  .DATA list X1 X2 X3 X4 X5 X6 X7
+   34  + 1000 1000 3.0552e-05 3.7158e-05 5e-05 0.95783 1.1175 
+   35  .ENDDATA
+   36  
+   37  .PRINTFILE ac v(vout1,vout2) file=acResult
+   38  
+   39  
+   40  
+   41  
+   42  .END
+
+End of file 
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+***** GENERATION ...
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+INFORMATION ABOUT COMPILATION 
+
+
+Memory space allocated (MB):    262
+11 elements
+7 nodes 
+4 input signals
+Detail about objects and nodes found in the design, and simulated by Eldo:
+Number of nodes                     7
+Number of intrinsic nodes           0
+Number of input signals             4
+Number of resistors                 2
+Number of floating capacitors       0
+Number of grounded capacitors       2
+Number of inductors                 0
+Number of voltage sources           4
+Number of current sources           0
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       3
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  11
+
+
+0************************************************************************************************************************
+
+
+run number 1 out of 1
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 14:04:40
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 25.000000 degrees C
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************14:04:40*****************
+
+0NO_TITLE
+0****                 MODELS PARAMETERS                                    TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+ DEVICE          MOS
+ MODEL: CMOSN
+ TYPE            N
+ LEVEL 53 : Bsim3v3 version 3.1
+ LIBRARY : /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+
+  names    values    units     names    values    units     names    values    units   
+  -----    ------    -----     -----    ------    -----     -----    ------    -----   
+VER     = 3.1000E+00 -       MOBMOD  = 1          -       CAPMOD  = 2          -      
+VFBFLAG = 0          -       NQSMOD  = 0          -       NOIMOD  = 2          -      
+DERIV   = 1          -       BINFLAG = 0          -       PARAMCHK= 0          -      
+IIMOD   = 0          -       FNLEV   = 0          -       
+
+ * Threshold voltage related model parameters *
+   ------------------------------------------  
+VTH0    = 3.6625E-01 V       DELVTO  = 0.0        V       K1      = 5.8650E-01 V^1/2  
+K2      = 1.1273E-03 -       NCH     = 2.3549E+17 At/cm^3 K3      = 1.0000E-03 -      
+K3B     = 2.9406E-02 1/V     DVT0    = 1.2065E+00 -       DVT1    = 4.2155E-01 -      
+DVT2    = 1.9775E-02 1/V     DVT0W   = 0.0        -       DVT1W   = 0.0        1/m    
+DVT2W   = 0.0        1/V     DSUB    = 1.4547E-02 -       ETA0    = 2.2309E-03 -      
+ETAB    = 6.0290E-05 1/V     
+
+ * Subthreshold related parameters *
+   -------------------------------  
+NFACTOR = 2.1860E+00 -       CDSC    = 2.4000E-04 F/m^2   CDSCB   = 0.0        F/Vm^2 
+CDSCD   = 0.0        F/Vm^2  VOFF    =-9.4802E-02 V       CIT     = 0.0        F/m^2  
+
+ * Mobility related model parameters *
+   ---------------------------------  
+UA      =-1.4050E-09 m/V     UB      = 2.4083E-18 (m/V)^2 UC      = 6.5048E-11 m/V^2  
+U0      = 2.7381E-02 unit1   MULUO   = 1.0000E+00 -       
+
+ * Saturation related parameters *
+   -----------------------------  
+PCLM    = 1.3822E+00 -       KETA    =-1.6486E-02 1/V     DELTA   = 1.0000E-02 V      
+A0      = 2.0000E+00 -       A1      = 3.8688E-04 1/V     A2      = 4.6403E-01 -      
+B0      = 1.9011E-07 m       B1      = 5.0000E-06 m       PVAG    = 1.6859E-03 -      
+PDIBLC1 = 1.7628E-01 -       PDIBLC2 = 1.6665E-03 -       PDIBLCB =-1.0000E-01 1/V    
+DROUT   = 7.6947E-01 -       VSAT    = 1.3550E+05 m/s     PSCBE1  = 8.9129E+09 V/m    
+PSCBE2  = 7.3496E-09 m/V     PRWB    =-1.9773E-01 V^-1/2  PRWG    = 5.0000E-01 1/V    
+RDSW    = 1.2334E+02 Ohm.um  AGS     = 4.4500E-01 1/V     
+
+ * Geometry modulation related parameters *
+   --------------------------------------  
+LREF    = 0.0        m       WREF    = 0.0        m       LINT    = 1.6900E-08 m      
+DLC     = 1.6900E-08 m       LL      = 0.0        m       LW      = 0.0        m      
+LWL     = 0.0        m       LLN     = 1.0000E+00 -       LWN     = 1.0000E+00 -      
+WINT    = 0.0        m       DWC     = 0.0        m       WL      = 0.0        m      
+WW      = 0.0        m       WWL     = 0.0        m       WLN     = 1.0000E+00 -      
+WWN     = 1.0000E+00 -       WR      = 1.0000E+00 -       W0      = 1.0000E-07 m      
+DWG     =-4.7287E-09 m/V     DWB     =-2.4524E-09 m/V^1/2 
+
+ * Temperature effect parameters *
+   -----------------------------  
+UPDATEPHI= 0          -       AT      = 3.3000E+04 m/sec   UTE     =-1.5000E+00 -      
+KT1     =-1.1000E-01 V       KT2     = 2.2000E-02 -       KT1L    = 0.0        mV     
+UA1     = 4.3100E-09 m/V     UB1     =-7.6100E-18 (m/V)^2 UC1     =-5.6000E-11 m/V^2  
+PRT     = 0.0        Ohm.um  
+
+ * Overlap capacitance related and dynamic model parameters *
+   --------------------------------------------------------  
+XPART   = 5.0000E-01 -       CLC     = 1.0000E-07 m       CLE     = 6.0000E-01 -      
+CGDO    = 8.2300E-10 F/m     CGDL    = 0.0        F/m     CGSO    = 8.2300E-10 F/m    
+CGSL    = 0.0        F/m     CGBO    = 1.0000E-12 F/m     CKAPPA  = 6.0000E-01 V      
+CF      = 0.0        F/m     ELM     = 5.0000E+00 -       VFBCV   =-1.0000E+00 -      
+
+ * Substrate current related model parameters *
+   ----------------------------------------------
+ALPHA0  = 0.0        m/V     BETA0   = 3.0000E+01 V       
+
+ * Process and parameters extraction related model parameters *
+   ----------------------------------------------------------  
+TOX     = 4.1000E-09 m       DTOXCV  = 0.0        m       NGATE   = 0.0        At/cm^3
+NLX     = 1.6307E-07 m       XL      = 0.0        m       XW      =-1.0000E-08 m      
+ND      = 1.0000E+20 At/cm^3 
+
+ * Noise effect related model parameters *
+   -------------------------------------  
+THMLEV  = 0          -       FLKLEV  = 0          -       AF      = 1.0000E+00 -      
+KF      = 1.0000E-09 -       EF      = 9.2000E-01 -       NSTAR   = 2.0000E+14 -      
+FLKFLAG = 0.0        -       NOIFLAG = 0.0        -       NOIA    = 1.3183E+19 unit2  
+NOIB    = 1.4454E+05 1/V     NOIC    =-1.2452E-12 unit3   EM      = 4.1000E+07 V/m    
+WPEMOD  = 0.0        -       SCREF   = 1.0000E-06 m       KVTH0WE = 0.0        V      
+K2WE    = 0.0        -       KU0WE   = 0.0        -       WEB     = 0.0        -      
+WEC     = 0.0        -       
+
+ * Binning Parameters *
+   -------------------  
+BINUNIT = 1.0000E+00 -       
+* Display only non null Binning Parameters *
+PK2     = 1.5933E-03 -       PU0     = 6.7775E+00 -       PUA     = 5.5054E-12 -      
+PUB     = 8.8413E-25 -       PVSAT   = 2.0063E+03 -       LKETA   = 7.1651E-03 -      
+WKETA   =-2.8810E-03 -       PKETA   =-6.7593E-03 -       PRDSW   =-9.3690E-01 -      
+PETA0   = 1.0032E-04 -       PVTH0   =-2.1994E-03 -       
+   ------------------------------------------------------------------------  
+
+ *** Common extrinsic model parameters ***
+OPTACM  = 1          -       GDSNOI  = 1.0000E+00 -       ACM     = 0          -      
+ALEV    = 0          -       RLEV    = 0          -       
+ * Access resistances related parameters *
+RD      = 0.0        Ohm     RS      = 0.0        Ohm     RSH     = 6.7000E+00 Ohm/Sq.
+RDC     = 0.0        Ohm     RSC     = 0.0        Ohm     
+ * Geometry related parameters *
+LD      = 1.6900E-08 m       WD      = 0.0        m       DL      = 0.0        m      
+DW      = 0.0        m       LDIF    = 0.0        m       HDIF    = 0.0        m      
+WMLT    = 1.0000E+00 -       LMLT    = 1.0000E+00 -       DEL     = 0.0        m      
+XJ      = 1.0000E-07 m       
+ * Static bulk-diode related parameters *
+DIOLEV  = 2          -       JS      = 0.0        A/m^2   JSW     = 0.0        A/m    
+IS      = 0.0        A       NJ      = 1.0000E+00 -       NDS     = 1.0000E+00 -      
+VNDS    =-1.0000E+00 V       VDLIN   = 5.0000E-01 -       
+ * Dynamic bulk-diode related parameters *
+DCAPLEV = 3          -       CJGATE  = 0.0                CBD     = 0.0        F      
+CBS     = 0.0        F       CJ      = 9.4493E-04 F/m^2   CJSW    = 2.6069E-10 F/m    
+FC      = 0.0        -       MJ      = 3.8203E-01 -       MJSW    = 1.0232E-01 -      
+TT      = 0.0        s       PB      = 8.0315E-01 V       PBSW    = 8.0315E-01 V      
+ * Temperature related Parameters 
+EG      = 1.1100E+00 eV      GAP1    = 7.0200E-04 eV/degK GAP2    = 1.1080E+03 degK   
+TNOM    = 2.7000E+01 degC    TLEV    = 0          -       TLEVC   = 0          -      
+TLEVI   = 3          -       XTI     = 0.0        -       
+ * Temperature Access Resistance related parameters * TLEVR = 1 
+TRD1    = 0.0        1/degK  TRS1    = 0.0        1/degK  TRSH1   = 0.0        1/degK 
+TRD2    = 0.0        unit4   TRS2    = 0.0        unit4   TRSH2   = 0.0        unit4  
+
+unit1 represents m^2/V/sec
+unit2 represents V^-1.m^-2
+unit3 represents V^-1.m^2
+unit4 represents 1/degK^2
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************14:04:40*****************
+
+0NO_TITLE
+0****                 OPTION SUMMARY                                         TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+*** DC Control Options : 
+
+GMIN           = 1.00e-12 NMAXSIZE       = 100000   ITL1           = 100      
+GRAMP          = 0        NETSIZE        = 100      VMINDC         = UNDEF    
+VMAXDC         = UNDEF    
+
+*** Initial Accuracy Control Options (May be adjusted during simulation): 
+
+ITOL           = 1.00e-06 EPS            = 5.00e-03 VNTOL          = 1.00e-06 
+RELTOL         = 1.00e-03 RELERR         = 5.00e-02 PIVREL         = 1.00e-03 
+PIVTOL         = 1.00e-16 ABSTOL         = 1.00e-12 FLXTOL         = 1.00e-11 
+MAXORD         = 2.00e+00 
+
+*** Time-step Control Options : 
+
+ZOOMTIME       = 1.00e+00 STEP           = 0.00e+00 STARTSMP       = 0.00e+00 
+FREQSMP        = 0.00e+00 COURESOL       = 0.00e+00 TRTOL          = 7.00e+00 
+HMIN           = 1.00e-12 ITL3           = 3        ITL4           = 13       
+FT             = 1.25e-01 DCLOG          = 1.00e+00 LVLTIM         = 2        
+LVLCNV         = 2        DVDT           = -1       RELVAR         = 1.50e-01 
+ABSVAR         = 2.00e-01 SAMPLE         = 0.00e+00 HMAX           = UNDEF    
+
+
+*** MosFet default Options : 
+
+SCALE          = 1.00e+00 SCALM          = 1.00e+00 SCALEBSIM      = 1.00e+00 
+DEFAD          = UNDEF    DEFAS          = UNDEF    DEFPD          = UNDEF    
+DEFPS          = UNDEF    DEFW           = 1.00e-04 DEFL           = 1.00e-04 
+DEFNRD         = UNDEF    DEFNRS         = UNDEF    XA             = 6.00e-06 
+LIMRMOS        = UNDEF    SHRINK         = 1.00e+00 
+
+*** General Information Options : 
+
+CPTIME         = UNDEF    STAT           = 0        TIMEDIV        = 0        
+SIMUDIV        = 10       SAVETIME       = 0        MAXTRAN        = 1000     
+MAXNODES       = 10000    MAXV           = 1.00e+13 LIMPROBE       = 10000    
+FLICKER_NOISE  = 0        THERMAL_NOISE  = 0        TNOM           = 2.50e+01 
+TMAX           = UNDEF    
+SPICDC         = 0        SPIOUT         = 0        NEWTON         = 1        
+OSR            = 0        TRAP           = 1        GEAR           = 0        
+BE             = 0        PROBEOP        = 0        NOLAT          = 0        
+NWLAT          = 0        ANALOG         = 0        BBDEBUG        = 0        
+NOSIZECHK      = 0        QTRUNC         = 0        UNBOUND        = 0        
+LCAPOP         = 0        NOAEX          = 0        AEX            = 0        
+AEX            = 0        STVER          = 0        MOTOROLA       = 0        
+AMS            = 0        ASPEC          = 0        INPUT          = 0        
+NOINIT         = 0        PSF            = 0        NOBIN          = 0        
+NOCOU          = 1        WL             = 0        NODE           = 0        
+LIST           = 0        SPI3BIN        = 0        SPI3ASC        = 0        
+NOMOD          = 0        NOBIN          = 0        NOCOU          = 1        
+RMOS           = 0        NWRMOS         = 1        NONWRMOS       = 0        
+USEDEFAP       = 0        NOASCII        = 0        ASCII          = 1        
+MIXED          = 0        SWITCH         = 0        USERSWITCH     = 0        
+TIMING         = 0        MODWL          = 1        ULOGIC         = 0        
+
+
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:5 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************14:04:40*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
+ACGND        1.0489E-01  VBIAS        9.5783E-01  VDD          1.8000E+00  
+VIN          1.1175E+00  VINNEG       1.1175E+00  VOUT1        1.8112E-01  
+VOUT2        1.6648E-01  
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0        -3.2524E-03   1.8000E+00  -5.8543E-03  
+VBIAS      0.0          9.5783E-01   0.0         
+V1         0.0          1.1175E+00   0.0         
+V2         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  5.8543E-03 WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************14:04:40*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               M1           M2           M3           
+
+MODEL          CMOSN        CMOSN        CMOSN        
+MFACTOR         1.0000E+00   1.0000E+00   1.0000E+00  
+ID              1.6189E-03   1.6335E-03   3.2524E-03  
+Ibd             0.0          0.0          0.0         
+Ibs             0.0          0.0          0.0         
+VGS             1.0126E+00   1.0126E+00   9.5783E-01  
+VDS             7.6236E-02   6.1596E-02   1.0489E-01  
+VBS            -1.0489E-01  -1.0489E-01   0.0         
+VTH             5.3024E-01   5.3041E-01   5.0231E-01  
+VDSAT           2.2389E-01   2.2390E-01   2.1570E-01  
+GM              3.1224E-03   3.0794E-03   7.2104E-03  
+GDS             1.8187E-02   2.3477E-02   2.4374E-02  
+RON             5.4986E+01   4.2594E+01   4.1028E+01  
+GMB             8.2140E-04   8.1341E-04   1.9258E-03  
+Cdd             4.0482E-14   5.0436E-14   6.1737E-14  
+Cdg            -4.3273E-14  -5.2878E-14  -6.9668E-14  
+Cds             7.3914E-15   8.1183E-15   1.5468E-14  
+Cdb            -4.6002E-15  -5.6765E-15  -7.5369E-15  
+Cgd            -3.8336E-14  -4.7672E-14  -5.8592E-14  
+Cgg             8.7424E-14   1.0655E-13   1.4214E-13  
+Cgs            -4.7426E-14  -5.6894E-14  -8.0312E-14  
+Cgb            -1.6624E-15  -1.9810E-15  -3.2383E-15  
+Csd             1.5345E-14   1.9863E-14   2.0595E-14  
+Csg            -4.3273E-14  -5.2878E-14  -6.9668E-14  
+Css             3.2528E-14   3.8691E-14   5.6610E-14  
+Csb            -4.6002E-15  -5.6765E-15  -7.5369E-15  
+Cbd            -1.7491E-14  -2.2627E-14  -2.3741E-14  
+Cbg            -8.7866E-16  -7.9092E-16  -2.8056E-15  
+Cbs             7.5073E-15   1.0084E-14   8.2342E-15  
+Cbb             1.0863E-14   1.3334E-14   1.8312E-14  
+PHI             8.5885E-01   8.5885E-01   8.5885E-01  
+VBI             1.0154E+00   1.0154E+00   1.0154E+00  
+Region         linear       linear       linear       
+VTH_D           4.8237E-01   4.8220E-01   4.5552E-01  
+
+               R1           R2           
+V+              1.8000E+00   1.8000E+00  
+V-              1.8112E-01   1.6648E-01  
+ID              1.6189E-03   1.6335E-03  
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************14:04:40*****************
+
+0NO_TITLE
+0****                 ACCOUNTING INFORMATION                                 TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+Number of nodes                     7
+Number of intrinsic nodes           0
+Number of input signals             4
+Number of resistors                 2
+Number of floating capacitors       0
+Number of grounded capacitors       2
+Number of inductors                 0
+Number of voltage sources           4
+Number of current sources           0
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       3
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  11
+Number of equations                 11
+Number of non-zero terms            36
+Percent Zeros                      70.25
+Number of Newton iterations         5
+Number of AC points                 71
+Evaluation of active devices        45
+Memory size (MB)                    264.9
+
+***>CPU TIME 0s 000ms <***
+
+
+***>GLOBAL CPU TIME 0s 010ms <***
+
+
+***>GLOBAL ELAPSED TIME 1s <***
+
+
+  Job started at  2-Dec-2016 14:04:39
+  Job end at      2-Dec-2016 14:04:40
+
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+

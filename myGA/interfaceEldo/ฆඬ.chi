@@ -1,0 +1,22 @@
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : r0364010@pc-klas1-16.esat.kuleuven.be
+*** OS    : \S [VCO = aol]
+*** CPU   :
+    Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz
+    Number of physical processors     : 1
+    Hyper-Threading Technology        : disabled
+    Number of cpu cores               : 4
+    Number of logical processors      : 4
+*** Freq  : 2471.523MHz
+*** Cache : 6144 KB
+*** MEM   : 7910216 kB
+*** Date  : Fri Dec  2 13:20:49 2016
+
+/esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/ฆඬ 
+
+ERROR 1: Unable to open file ฆඬ
++   No such file or directory

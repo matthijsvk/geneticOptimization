@@ -1,0 +1,33 @@
+
+.option compat
+.lib model
+
+.global 0 
+      * R1 R2 w1  w2 wbias Vbias, VcommonMode
+.param X1=1, X2=1, X3=1, X4=1, X5=1, X6=1, X7=1
+
+R1 vdd vout1 'X1'
+R2 vdd vout2 'X2'
+
+* drain gate source bulk
+m1 vout1 vin ACgnd 0 CMOSN w='X3' l=0.18u
+m2 vout2 vin ACgnd 0 CMOSN w='X4' l=0.18u
+m3 ACgnd vbias gnd 0 CMOSN w='X5' l=0.18u
+
+C1 vout1 0 5f
+C2 vout2 0 5f
+
+* vdd and vbias
+V0 vdd 0 dc 1.8
+vbias vbias 0 dc 'X6'
+
+* common mode
+V1 vin 0 dc 'X7'
+
+.dc data=list
+
+.data list X1 X2 X3 X4 X5 X6 X7
++ 1000 1000 3.0552e-05 3.7158e-05 5e-05 0.95783 1.1175 
+.enddata
+
+.printfile dc i(v0) file=dcResult
