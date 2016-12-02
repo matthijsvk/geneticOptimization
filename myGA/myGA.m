@@ -1,4 +1,4 @@
-function [it,population,runTime]=myGAoriginal(f,V,M,lb,ub)
+function [it,population,runTime]=myGA(f,V,M,lb,ub)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
