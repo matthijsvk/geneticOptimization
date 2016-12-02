@@ -13,23 +13,24 @@ if V==2
     axis([lb(1) ub(1) lb(2) ub(2)]);
 
 
-elseif V>2
-    
-    index=1;
-    for j=1:size(population,1)
-        %if population(j,V+M+1) == 1
-            x(index,1:V)=lb+(ub-lb).*population(j,1:V);
-            x(index,V+1:V+M) = population(j,V+1:V+M);
-        %end
-        index = index + 1;
+elseif V>=2
+    x = population(:,V+1:V+M);
+    if M == 1
+        plot(x(:,1));
+        
+    elseif M == 2
+        plot(x(:,1),x(:,2),'*');
+
+        title(['Search Space, Iteration ' num2str(it)]);
+        xlabel('x1');
+        ylabel('x2');
+        %axis([lb(1) ub(1) lb(2) ub(2)]);
+
+    elseif M== 3
+        
+        scatter3(x(:,1),x(:,2),x(:,3),'filled');
+    else
+        disp('the objective dimensionality is too high, cant be plotted');
     end
-    plot(x(:,V+1),x(:,V+2),'*');
-
-    
-    title(['Search Space, Iteration ' num2str(it)]);
-    xlabel('x1');
-    ylabel('x2');
-    %axis([lb(1) ub(1) lb(2) ub(2)]);
-
    
 end

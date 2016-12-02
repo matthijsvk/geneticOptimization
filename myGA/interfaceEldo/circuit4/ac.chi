@@ -11,17 +11,17 @@
     Hyper-Threading Technology        : disabled
     Number of cpu cores               : 4
     Number of logical processors      : 4
-*** Freq  : 3322.207MHz
+*** Freq  : 3319.785MHz
 *** Cache : 6144 KB
 *** MEM   : 7908024 kB
-*** Date  : Fri Dec  2 18:56:39 2016
+*** Date  : Fri Dec  2 20:15:21 2016
 
-/esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/circuit3/dc 
+/esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/circuit4/ac 
 
 
 ***** PRE-PROCESSING ...
 
-1******* 2-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******18:56:39******
+1******* 2-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******20:15:21******
 
 0
 
@@ -31,7 +31,7 @@
     2  .OPTION compat
     3  .LIB model
     4  
-    5  ** INCLUDING LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+    5  ** INCLUDING LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit4/model
     1  *  T58F SPICE BSIM3 VERSION 3.1 PARAMETERS
     2  * 
     3  * SPICE 3f5 Level 8, Star-HSPICE Level 49, UTMOST Level 8
@@ -126,60 +126,46 @@
    92  * flicker noise parameters above added manually from some other process
    93  * 
    94  
-    5  ** END OF LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+    5  ** END OF LIBRARY /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit4/model
     5  .GLOBAL 0 
     6        * R1 R2 w1  w2 wbias Vbias, VcommonMode
-    7  .PARAM X1=1, X2=1, X3=1, X4=1, X5=1, X6=1, X7=1
+    7  .PARAM X1=1, X2=1, X3=1, X4=1, X5=1
     8  
     9  R1 VDD VOUT1 'X1'
-   10  R2 VDD VOUT2 'X2'
+   10  R2 VDD VOUT2 'X1'
    11  
    12  * drain gate source bulk
-   13  M1 VOUT1 VIN ACGND 0 CMOSN W='X3' L=0.18U
-   14  M2 VOUT2 VIN ACGND 0 CMOSN W='X4' L=0.18U
-   15  M3 ACGND VBIAS GND 0 CMOSN W='X5' L=0.18U
-   16  
-   17  C1 VOUT1 0 5F
-   18  C2 VOUT2 0 5F
-   19  
-   20  * vdd and vbias
-   21  V0 vdd 0 dc 1.8
-   22  vbias vbias 0 dc 'X6'
-   23  
-   24  * common mode
-   25  V1 vin 0 dc 'X7'
-   26  
-   27  .DC data=list
-   28  
-   29  .DATA list X1 X2 X3 X4 X5 X6 X7
-   30  + 8819.1988 10000 1.8e-07 1.349e-05 4.4045e-05 1.8 0.7607 
-   31  + 1000 9878.3346 1.8e-07 1.5611e-05 4.13e-05 1.8 0.42007 
-   32  + 2308.8415 9708.0744 1.8e-07 5e-05 3.7435e-05 1.2451 0.66826 
-   33  + 1000 10000 1.8e-07 1.3645e-05 4.1622e-05 1.8 0.46202 
-   34  + 1000 9878.3346 1.8e-07 1.5153e-05 4.0156e-05 1.8 0.46109 
-   35  + 10000 10000 1.8e-07 1.697e-05 5e-05 1.8 0.5181 
-   36  + 1000 5767.6346 2.0649e-06 1.8e-07 4.0816e-05 1.8 0.19085 
-   37  + 3363.999 10000 1.8e-07 3.6438e-05 2.6542e-05 1.316 1.2382 
-   38  + 10000 5395.7778 1.2634e-05 1.1869e-05 3.4441e-05 1.8 0.60386 
-   39  + 5779.4843 10000 1.8e-07 1.5799e-05 4.8904e-05 1.8 0.57521 
-   40  + 1000 10000 1.8e-07 1.5153e-05 4.0156e-05 1.8 0.46109 
-   41  + 1002.8303 10000 1.8e-07 5.8248e-06 5e-05 1.8 1.3564 
-   42  + 1000 7295.2701 9.2413e-06 1.5956e-05 3.5924e-05 1.8 0.66841 
-   43  + 1000 9878.3346 1.8e-07 2.1019e-05 4.0745e-05 1.8 0.44982 
-   44  + 2033.1427 5481.707 2.598e-05 3.737e-06 4.1471e-05 1.5752 0.62252 
-   45  + 4232.6145 9162.3069 1.8e-07 3.3705e-06 4.4534e-05 1.5747 0.11798 
-   46  + 4649.5386 9325.2857 3.8382e-06 3.6105e-05 3.8735e-05 1.8 0.82067 
-   47  + 1000 10000 1.8e-07 1.6091e-05 4.018e-05 1.8 0.56457 
-   48  + 1000 10000 1.8e-07 1.3416e-05 4.1553e-05 1.8 0.56082 
-   49  + 1000 10000 1.8e-07 1.3081e-05 4.1292e-05 1.8 0.45658 
-   50  + 3422.4636 10000 1.8e-07 2.6632e-05 3.3149e-05 0.77456 0.96427 
-   51  + 1268.7721 10000 1.5523e-05 3.2962e-05 5e-05 1.8 0.46961 
-   52  + 1000 10000 1.8e-07 2.1243e-05 4.1534e-05 1.8 0.58574 
-   53  + 1000 9878.3346 1.8e-07 1.3421e-05 5e-05 1.8 0.46825 
-   54  .ENDDATA
-   55  
-   56  .PRINTFILE dc i(v0) file=dcResult
-   57  .END
+   13  M1 VOUT1 VIN ACGND 0 CMOSN W='X2' L=0.18U
+   14  M2 VOUT2 VINNEG ACGND 0 CMOSN W='X2' L=0.18U
+   15  
+   16  M3 ACGND VBIAS GND 0 CMOSN W='X3' L=0.18U
+   17  
+   18  C1 VOUT1 0 5F
+   19  C2 VOUT2 0 5F
+   20  
+   21  * vdd and vbias
+   22  V0 vdd 0 dc 1.8
+   23  vbias vbias 0 dc 'X4'
+   24  
+   25  * common mode
+   26  V1 vin 0 dc 'X5'
+   27  
+   28  * vin+ and vin-. flip connections => differential
+   29  V2 vin vinNeg ac 0.001
+   30  
+   31  
+   32  .AC dec 10 100 1G data=list
+   33  
+   34  .DATA list X1 X2 X3 X4 X5
+   35  + 75567.6262 0.0018525 0.0030979 1.6775 0.17823 
+   36  .ENDDATA
+   37  
+   38  .PRINTFILE ac v(vout1,vout2) file=acResult
+   39  
+   40  
+   41  
+   42  
+   43  .END
 
 End of file 
 
@@ -199,18 +185,18 @@ INFORMATION ABOUT COMPILATION
 
 
 Memory space allocated (MB):    262
-10 elements
-6 nodes 
-3 input signals
+11 elements
+7 nodes 
+4 input signals
 Detail about objects and nodes found in the design, and simulated by Eldo:
-Number of nodes                     6
+Number of nodes                     7
 Number of intrinsic nodes           0
-Number of input signals             3
+Number of input signals             4
 Number of resistors                 2
 Number of floating capacitors       0
 Number of grounded capacitors       2
 Number of inductors                 0
-Number of voltage sources           3
+Number of voltage sources           4
 Number of current sources           0
 Number of dependent sources         0
 Number of diodes                    0
@@ -219,17 +205,30 @@ Number of JFET                      0
 Number of MOS                       3
 Number of SWITCHES                  0
 Number of transmission lines        0
-Total number of elements simulated  10
+Total number of elements simulated  11
+
+
+0************************************************************************************************************************
+
+
+run number 1 out of 1
+   value of parameter X1 is 7.556763E+04
+   value of parameter X2 is 0.001852
+   value of parameter X3 is 0.003098
+   value of parameter X4 is 1.677500
+   value of parameter X5 is 0.178230
+1************************************************************************************************************************
+
 
 Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
 
-*** DATE:  2-Dec-2016 18:56:40
+*** DATE:  2-Dec-2016 20:15:21
 
 *** TITLE: NO_TITLE
 
 TEMPERATURE : 25.000000 degrees C
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************18:56:40*****************
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
 
 0NO_TITLE
 0****                 MODELS PARAMETERS                                    TEMPERATURE =   25.000 DEG C
@@ -242,7 +241,7 @@ TEMPERATURE : 25.000000 degrees C
  MODEL: CMOSN
  TYPE            N
  LEVEL 53 : Bsim3v3 version 3.1
- LIBRARY : /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit3/model
+ LIBRARY : /users/start2016/r0364010/Documents/CADIC/geneticOptimization/myGA/interfaceEldo/circuit4/model
 
   names    values    units     names    values    units     names    values    units   
   -----    ------    -----     -----    ------    -----     -----    ------    -----   
@@ -368,13 +367,10 @@ unit3 represents V^-1.m^2
 unit4 represents 1/degK^2
 
 
-Warning 240: OBJECT "M1":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
-Warning 240: OBJECT "M2":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
-Warning 240: OBJECT "M3":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
 
 
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************18:56:40*****************
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
 
 0NO_TITLE
 0****                 OPTION SUMMARY                                         TEMPERATURE =   25.000 DEG C
@@ -443,9 +439,98 @@ TIMING         = 0        MODWL          = 1        ULOGIC         = 0
 
 
 
+***> DC CPU TIME 0s 000ms <***
+
+DC:4 iterations FOR DC analysis
 
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************18:56:40*****************
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
+ACGND        8.8184E-07  VBIAS        1.6775E+00  VDD          1.8000E+00  
+VIN          1.7823E-01  VINNEG       1.7823E-01  VOUT1        1.6552E+00  
+VOUT2        1.6552E+00  
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0        -3.8327E-06   1.8000E+00  -6.8989E-06  
+VBIAS      0.0          1.6775E+00   0.0         
+V1         0.0          1.7823E-01   0.0         
+V2         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  6.8989E-06 WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               M1           M2           M3           
+
+MODEL          CMOSN        CMOSN        CMOSN        
+MFACTOR         1.0000E+00   1.0000E+00   1.0000E+00  
+ID              1.9164E-06   1.9164E-06   3.8327E-06  
+Ibd             0.0          0.0          0.0         
+Ibs             0.0          0.0          0.0         
+VGS             1.7823E-01   1.7823E-01   1.6775E+00  
+VDS             1.6552E+00   1.6552E+00   8.8184E-07  
+VBS            -8.8184E-07  -8.8184E-07   0.0         
+VTH             4.9284E-01   4.9284E-01   5.0327E-01  
+VDSAT           3.6803E-02   3.6803E-02   3.7966E-01  
+GM              5.2508E-05   5.2508E-05   1.2150E-06  
+GDS             9.9331E-07   9.9331E-07   4.3463E+00  
+RON             1.0067E+06   1.0067E+06   2.3008E-01  
+GMB             1.5717E-05   1.5717E-05   6.1117E-07  
+Cdd             1.5246E-12   1.5246E-12   4.6738E-12  
+Cdg            -1.5247E-12  -1.5247E-12  -4.4568E-12  
+Cds             1.6976E-16   1.6976E-16   3.0332E-13  
+Cdb            -4.1750E-17  -4.1750E-17  -5.2034E-13  
+Cgd            -1.5208E-12  -1.5208E-12  -4.3601E-12  
+Cgg             3.6863E-12   3.6863E-12   8.9213E-12  
+Cgs            -1.5024E-12  -1.5024E-12  -4.3906E-12  
+Cgb            -6.6310E-13  -6.6310E-13  -1.7056E-13  
+Csd            -8.0051E-19  -8.0051E-19   2.1243E-12  
+Csg            -1.5247E-12  -1.5247E-12  -4.4568E-12  
+Css             1.5248E-12   1.5248E-12   2.8529E-12  
+Csb            -4.1750E-17  -4.1750E-17  -5.2034E-13  
+Cbd            -3.8271E-15  -3.8271E-15  -2.4380E-12  
+Cbg            -6.3685E-13  -6.3685E-13  -7.6726E-15  
+Cbs            -2.2511E-14  -2.2511E-14   1.2344E-12  
+Cbb             6.6319E-13   6.6319E-13   1.2112E-12  
+PHI             8.5885E-01   8.5885E-01   8.5885E-01  
+VBI             1.0154E+00   1.0154E+00   1.0154E+00  
+Region         subthreshold subthreshold linear       
+VTH_D          -3.1461E-01  -3.1461E-01   1.1742E+00  
+
+               R1           R2           
+V+              1.8000E+00   1.8000E+00  
+V-              1.6552E+00   1.6552E+00  
+ID              1.9164E-06   1.9164E-06  
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
 
 0NO_TITLE
 0****                 ACCOUNTING INFORMATION                                 TEMPERATURE =   25.000 DEG C
@@ -456,14 +541,14 @@ TIMING         = 0        MODWL          = 1        ULOGIC         = 0
 
 
 
-Number of nodes                     6
+Number of nodes                     7
 Number of intrinsic nodes           0
-Number of input signals             3
+Number of input signals             4
 Number of resistors                 2
 Number of floating capacitors       0
 Number of grounded capacitors       2
 Number of inductors                 0
-Number of voltage sources           3
+Number of voltage sources           4
 Number of current sources           0
 Number of dependent sources         0
 Number of diodes                    0
@@ -472,28 +557,26 @@ Number of JFET                      0
 Number of MOS                       3
 Number of SWITCHES                  0
 Number of transmission lines        0
-Total number of elements simulated  10
-Number of equations                 3
-Number of non-zero terms            7
-Percent Zeros                      22.22
-Number of DC points                 24
-Number of Newton iterations         120
-Average number of Newton iterations 5.000e+00
-Evaluation of active devices        474
-Memory size (MB)                    265.9
+Total number of elements simulated  11
+Number of equations                 11
+Number of non-zero terms            36
+Percent Zeros                      70.25
+Number of Newton iterations         4
+Number of AC points                 71
+Evaluation of active devices        37
+Memory size (MB)                    264.9
 
 ***>CPU TIME 0s 000ms <***
 
-***>MESSAGE SUMMARY: 3 warnings
 
 ***>GLOBAL CPU TIME 0s 010ms <***
 
 
-***>GLOBAL ELAPSED TIME 1s <***
+***>GLOBAL ELAPSED TIME 0s <***
 
 
-  Job started at  2-Dec-2016 18:56:39
-  Job end at      2-Dec-2016 18:56:40
+  Job started at  2-Dec-2016 20:15:21
+  Job end at      2-Dec-2016 20:15:21
 
   Run on pc-klas1-14.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
 

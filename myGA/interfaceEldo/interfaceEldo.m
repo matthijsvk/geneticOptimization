@@ -38,24 +38,25 @@ function obj = interfaceEldo(filename,x)
         Zph= atan(dataAC{j}.IX ./ dataAC{j}.RX);
        
         %% get G, BW, GBW, unityGBW
-        Gain = Zmagn(1)/0.001;
+        Zmagn = Zmagn./0.001;
+        Gain = Zmagn(1);
         % find GBW: see where Zamp (=Vout goes below Vin*0.708)
         BWvector = dataAC{j}.f(Zmagn < 0.708*Zmagn(1)); 
         if size(BWvector,1) > 0
             BW = BWvector(1);
         else
-            BW = j;
+            BW = 1; %1Hz, otherwise GBW is zero for all, and crowdingDistance is NaN
         end
         GBW = BW * Gain;
         
         % find unityGBW: see where Zamp (=Vout goes below Vin)
         unityGBWvector = dataAC{j}.f(Zmagn < 1);
-        if size(unityGBWvector, 1) == size(dataAC{j}.f,1)
-            unityGBW = 0;
-        elseif size(unityGBWvector ,1) > 0
+        if size(unityGBWvector, 1) == size(dataAC{j}.f,1) % gain always lower than 1
+            unityGBW = 1;
+        elseif size(unityGBWvector ,1) > 0 % some freqs with gain higher than 1
             unityGBW = unityGBWvector(1);
         else
-            unityGBW = 0;
+            unityGBW = 1; % eg if gain goes up and never comes down (which is not realistic)
         end
         
 %         fprintf('Gain:   %d ',Gain)
@@ -80,9 +81,9 @@ function obj = interfaceEldo(filename,x)
     end
     
     % Compute objectives
-    obj(:,1)=1/GBWresults;
-    obj(:,2)=1/Pvector;
-    %obj(:,3)=BWresults;
+%     obj(:,1)=-GBWresults; %minus because we want to maximize GBW (and the GA tries to minimize everything)
+%     obj(:,2)=Pvector;
+    obj(:,1)=-Gain;
 
     
 end

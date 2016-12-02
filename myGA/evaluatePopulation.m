@@ -11,12 +11,15 @@ function population=evaluatePopulation(population,f,V,M,lb,ub)
 %     disp(population)
     
     % onedimensional M: scores = f(population)
-    popLength = size(population,1);
-    scores = zeros(popLength,M);
-    for i=1:popLength
-        scores(i,:) = f(population(i,1:V));
+    if M == 1
+        popLength = size(population,1);
+        scores = zeros(popLength,M);
+        for i=1:popLength
+            scores(i,:) = f(population(i,1:V));
+        end
+    else
+        scores = f(population(:,1:V));
     end
-%     scores = f(population(:,1:V))
     
     population = normalizePopulation(population, lb,ub);
 %     disp('end evalPopulation')
