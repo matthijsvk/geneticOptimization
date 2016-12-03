@@ -1,4 +1,4 @@
-function [it,population,runTime]=myGA(f,V,M,lb,ub)
+function [it,population,runTime]=myOptimizeGA(f,V,M,lb,ub)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
@@ -59,7 +59,7 @@ crowdingDistanceFlag = 0;
 while stopFlag==0
     if verbose
         disp('##################################################')
-        disp(['######## NEW ITERATION:  ',num2str(it), '  ############'])
+        disp(['################# NEW ITERATION:  ',num2str(it), '  ################'])
         disp('##################################################')
     end
     popUnnormalized = unnormalizePopulation(population(:,1:V),lb,ub);
@@ -96,9 +96,6 @@ while stopFlag==0
     else
         population = sortPopulationCrowding(population,V,M,N);
     end
-    
-    disp('population after cropping: ')
-    disp(population);
     
     % Visualization
 %     if verbose %&& mod(it,10)==0

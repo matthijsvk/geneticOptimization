@@ -1,11 +1,16 @@
 clear all;
-%clf;
 
-% Define the boundaries of the problem.
-% lb=[-5,-5];
-% V =length(lb);
-% ub=[5,5];
-% M=1;
+%% This function runs the GA 'on itself' in order to find better parameters for the GA.
+%% The top GA (myOpimizeGA) has manually set parameters, which allow for reasonably fast convergence
+% The script creates a population of GA parameters (P, sd_mut, N, NPMUlt (=NP/N),
+% NCMult (=NC/N), intervalScalar). Each individual in the population is
+% tested for convergence speed against the ZDT6 benchmark (in benchmark.m),
+% taking as objective function the runtime till convergence divided by the
+% population size (as larger populations will always take longer to
+% calculate), since we want to optimize for convergence independent of
+% population size. The calculation of this convergence time happens in
+% myGAEvaluator.m
+
 %     P       sd_mut    N     NPMult  NCMult  intervalScalar
 lb=  [0.1,    0.001,    8,    0.1,    0.1,      1];
 ub=  [1,      2,        64,   1,      2,      1.5];

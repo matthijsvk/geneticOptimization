@@ -30,7 +30,7 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         % idea 2: lowest crowding distance has to be x% of the average
         % (without counting Inf of course)
         if (min(cdVector) > 0.8*median(cdVector )) ...
-            && ( max(cdVector) < 1.2*median(cdVector) )
+            & ( max(cdVector) < 1.2*median(cdVector) )
             stopFlag = 1;
         end
         

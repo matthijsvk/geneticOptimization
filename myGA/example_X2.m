@@ -12,22 +12,18 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 
-<<<<<<< Updated upstream
-
 nbTests = 100;
-=======
-nbTests = 1;
->>>>>>> Stashed changes
 totIt = zeros(nbTests,1);
 totRunTime = zeros(nbTests,1);
-for i=1:nbTests
+parfor i=1:nbTests
+%     disp(['now running test: ',num2str(i)])
     [it,population,runTime]= myGA(@(x) benchmark(4,x,V),V,M,lb,ub);
     totIt(i) =  it;
     totRunTime(i) = runTime;
     
     % draw so we can visualize the population results
-    illustratePopulation(population,V,M,lb,ub,it);
-    drawnow;
+    %illustratePopulation(population,V,M,lb,ub,it);
+    %drawnow;
     %pause(0.5);
 end
 itAvg = mean(totIt) ;
@@ -46,9 +42,9 @@ fprintf('maxIt: %5.2f |\t maxTime: %5.2f \n', maxIt, maxTime);
 % disp(['Total runTime: ', num2str(runTime)]);
 % disp(['Number of iterations till convergence: ',num2str(it)])
 
-disp('FinalPopulation')
-disp(population)    
+%disp('FinalPopulation')
+%disp(population)    
 
-illustratePopulation(population,V,M,lb,ub,it);
+%illustratePopulation(population,V,M,lb,ub,it);
 
 
