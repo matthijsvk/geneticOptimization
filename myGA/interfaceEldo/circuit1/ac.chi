@@ -1,0 +1,2749 @@
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : r0364010@pc-klas1-16.esat.kuleuven.be
+*** OS    : \S [VCO = aol]
+*** CPU   :
+    Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz
+    Number of physical processors     : 1
+    Hyper-Threading Technology        : disabled
+    Number of cpu cores               : 4
+    Number of logical processors      : 4
+*** Freq  : 3326.324MHz
+*** Cache : 6144 KB
+*** MEM   : 7910216 kB
+*** Date  : Fri Dec  2 10:56:57 2016
+
+/esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/circuit1/ac 
+
+
+***** PRE-PROCESSING ...
+
+1******* 2-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******10:56:57******
+
+0
+
+0****     INPUT LISTING                                               
+
+0***********************************************************************
+    2  .GLOBAL 0 
+    3  
+    4  .PARAM X1=100 X2=0.1
+    5  
+    6  R01 VIN VOUT 'X1'
+    7  C01 VOUT 0 'X2'
+    8  
+    9  V0 vin 0 ac 1
+   10  
+   11  .AC dec 10 100 1G data=list
+   12  
+   13  .DATA list X1 X2
+   14  + 3989.061 4059.8759 5.861e-06 5.4022e-06 1.1647e-06 0.48095 0.45015 
+   15  + 9077.319 8620.3986 3.9849e-05 4.2943e-05 4.8221e-05 1.3567 1.6698 
+   16  + 5496.839 3214.6261 3.0961e-05 3.4964e-05 4.8524e-05 1.6171 0.12345 
+   17  + 6537.5942 6233.4213 3.678e-06 3.6735e-05 6.3507e-06 1.3112 0.53892 
+   18  + 6248.1967 9439.0919 3.6315e-06 3.2589e-05 2.3466e-05 0.73229 1.0649 
+   19  + 7284.2853 1430.0856 6.9559e-06 2.5901e-05 3.2896e-05 1.689 0.36594 
+   20  + 1263.9911 1485.7989 3.9483e-05 1.6441e-05 1.4637e-05 0.45977 1.1446 
+   21  + 5750.9442 1185.5623 4.7833e-06 3.315e-05 3.7771e-05 0.95969 1.4371 
+   22  + 1288.6556 7133.3066 1.2031e-05 6.0371e-06 2.7985e-05 1.7186 0.90306 
+   23  + 8444.2809 6387.6567 1.2319e-05 7.5443e-06 2.1493e-05 0.48195 1.1715 
+   24  .ENDDATA
+   25  
+   26  .PRINTFILE ac v(vout) file=acResult
+   27  .END
+
+End of file 
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+***** GENERATION ...
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+INFORMATION ABOUT COMPILATION 
+
+
+Memory space allocated (MB):    262
+3 elements
+2 nodes 
+1 input signals
+Detail about objects and nodes found in the design, and simulated by Eldo:
+Number of nodes                     2
+Number of intrinsic nodes           0
+Number of input signals             1
+Number of resistors                 1
+Number of floating capacitors       0
+Number of grounded capacitors       1
+Number of inductors                 0
+Number of voltage sources           1
+Number of current sources           0
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       0
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  3
+
+
+0************************************************************************************************************************
+
+
+run number 1 out of 35
+   value of parameter X1 is 3.989061E+03
+   value of parameter X2 is 4.059876E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPTION SUMMARY                                         TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+*** DC Control Options : 
+
+GMIN           = 1.00e-12 NMAXSIZE       = 100000   ITL1           = 100      
+GRAMP          = 0        NETSIZE        = 100      VMINDC         = UNDEF    
+VMAXDC         = UNDEF    
+
+*** Initial Accuracy Control Options (May be adjusted during simulation): 
+
+ITOL           = 1.00e-06 EPS            = 5.00e-03 VNTOL          = 1.00e-06 
+RELTOL         = 1.00e-03 RELERR         = 5.00e-02 PIVREL         = 1.00e-03 
+PIVTOL         = 1.00e-16 ABSTOL         = 1.00e-12 FLXTOL         = 1.00e-11 
+MAXORD         = 2.00e+00 
+
+*** Time-step Control Options : 
+
+ZOOMTIME       = 1.00e+00 STEP           = 0.00e+00 STARTSMP       = 0.00e+00 
+FREQSMP        = 0.00e+00 COURESOL       = 0.00e+00 TRTOL          = 7.00e+00 
+HMIN           = 1.00e-12 ITL3           = 3        ITL4           = 13       
+FT             = 1.25e-01 DCLOG          = 1.00e+00 LVLTIM         = 2        
+LVLCNV         = 2        DVDT           = -1       RELVAR         = 1.50e-01 
+ABSVAR         = 2.00e-01 SAMPLE         = 0.00e+00 HMAX           = UNDEF    
+
+
+*** MosFet default Options : 
+
+SCALE          = 1.00e+00 SCALM          = 1.00e+00 SCALEBSIM      = 1.00e+00 
+DEFAD          = UNDEF    DEFAS          = UNDEF    DEFPD          = UNDEF    
+DEFPS          = UNDEF    DEFW           = 1.00e-04 DEFL           = 1.00e-04 
+DEFNRD         = UNDEF    DEFNRS         = UNDEF    XA             = 6.00e-06 
+LIMRMOS        = UNDEF    SHRINK         = 1.00e+00 
+
+*** General Information Options : 
+
+CPTIME         = UNDEF    STAT           = 0        TIMEDIV        = 0        
+SIMUDIV        = 10       SAVETIME       = 0        MAXTRAN        = 1000     
+MAXNODES       = 10000    MAXV           = 1.00e+13 LIMPROBE       = 10000    
+FLICKER_NOISE  = 0        THERMAL_NOISE  = 0        TNOM           = 2.70e+01 
+TMAX           = UNDEF    
+SPICDC         = 0        SPIOUT         = 0        NEWTON         = 1        
+OSR            = 0        TRAP           = 1        GEAR           = 0        
+BE             = 0        PROBEOP        = 0        NOLAT          = 0        
+NWLAT          = 0        ANALOG         = 0        BBDEBUG        = 0        
+NOSIZECHK      = 0        QTRUNC         = 1        UNBOUND        = 0        
+LCAPOP         = 0        NOAEX          = 0        AEX            = 0        
+AEX            = 0        STVER          = 0        MOTOROLA       = 0        
+AMS            = 0        ASPEC          = 0        INPUT          = 0        
+NOINIT         = 0        PSF            = 0        NOBIN          = 0        
+NOCOU          = 1        WL             = 0        NODE           = 0        
+LIST           = 0        SPI3BIN        = 0        SPI3ASC        = 0        
+NOMOD          = 0        NOBIN          = 0        NOCOU          = 1        
+RMOS           = 0        NWRMOS         = 1        NONWRMOS       = 0        
+USEDEFAP       = 0        NOASCII        = 0        ASCII          = 1        
+MIXED          = 0        SWITCH         = 0        USERSWITCH     = 0        
+TIMING         = 0        MODWL          = 1        ULOGIC         = 0        
+
+
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 2 out of 35
+   value of parameter X1 is 5.861000E-06
+   value of parameter X2 is 5.402200E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 3 out of 35
+   value of parameter X1 is 1.164700E-06
+   value of parameter X2 is 0.480950
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 4 out of 35
+   value of parameter X1 is 0.450150
+   value of parameter X2 is 9.077319E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 5 out of 35
+   value of parameter X1 is 8.620399E+03
+   value of parameter X2 is 3.984900E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 010ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 010ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 6 out of 35
+   value of parameter X1 is 4.294300E-05
+   value of parameter X2 is 4.822100E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 7 out of 35
+   value of parameter X1 is 1.356700
+   value of parameter X2 is 1.669800
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 8 out of 35
+   value of parameter X1 is 5.496839E+03
+   value of parameter X2 is 3.214626E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 9 out of 35
+   value of parameter X1 is 3.096100E-05
+   value of parameter X2 is 3.496400E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 10 out of 35
+   value of parameter X1 is 4.852400E-05
+   value of parameter X2 is 1.617100
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 11 out of 35
+   value of parameter X1 is 0.123450
+   value of parameter X2 is 6.537594E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 12 out of 35
+   value of parameter X1 is 6.233421E+03
+   value of parameter X2 is 3.678000E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 13 out of 35
+   value of parameter X1 is 3.673500E-05
+   value of parameter X2 is 6.350700E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 14 out of 35
+   value of parameter X1 is 1.311200
+   value of parameter X2 is 0.538920
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 15 out of 35
+   value of parameter X1 is 6.248197E+03
+   value of parameter X2 is 9.439092E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 16 out of 35
+   value of parameter X1 is 3.631500E-06
+   value of parameter X2 is 3.258900E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 17 out of 35
+   value of parameter X1 is 2.346600E-05
+   value of parameter X2 is 0.732290
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 18 out of 35
+   value of parameter X1 is 1.064900
+   value of parameter X2 is 7.284285E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 19 out of 35
+   value of parameter X1 is 1.430086E+03
+   value of parameter X2 is 6.955900E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 20 out of 35
+   value of parameter X1 is 2.590100E-05
+   value of parameter X2 is 3.289600E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 21 out of 35
+   value of parameter X1 is 1.689000
+   value of parameter X2 is 0.365940
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 22 out of 35
+   value of parameter X1 is 1.263991E+03
+   value of parameter X2 is 1.485799E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 23 out of 35
+   value of parameter X1 is 3.948300E-05
+   value of parameter X2 is 1.644100E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 24 out of 35
+   value of parameter X1 is 1.463700E-05
+   value of parameter X2 is 0.459770
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 25 out of 35
+   value of parameter X1 is 1.144600
+   value of parameter X2 is 5.750944E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 010ms <***
+
+
+
+
+
+***>CPU TIME 0s 010ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 26 out of 35
+   value of parameter X1 is 1.185562E+03
+   value of parameter X2 is 4.783300E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 27 out of 35
+   value of parameter X1 is 3.315000E-05
+   value of parameter X2 is 3.777100E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 28 out of 35
+   value of parameter X1 is 0.959690
+   value of parameter X2 is 1.437100
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 29 out of 35
+   value of parameter X1 is 1.288656E+03
+   value of parameter X2 is 7.133307E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 30 out of 35
+   value of parameter X1 is 1.203100E-05
+   value of parameter X2 is 6.037100E-06
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 31 out of 35
+   value of parameter X1 is 2.798500E-05
+   value of parameter X2 is 1.718600
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 32 out of 35
+   value of parameter X1 is 0.903060
+   value of parameter X2 is 8.444281E+03
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 33 out of 35
+   value of parameter X1 is 6.387657E+03
+   value of parameter X2 is 1.231900E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 34 out of 35
+   value of parameter X1 is 7.544300E-06
+   value of parameter X2 is 2.149300E-05
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 35 out of 35
+   value of parameter X1 is 0.481950
+   value of parameter X2 is 1.171500
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
+
+*** DATE:  2-Dec-2016 10:56:57
+
+*** TITLE: NO_TITLE
+
+TEMPERATURE : 27.000000 degrees C
+
+Warning 123:  NODE "VOUT": A capacitor of more than 1F is attached to that node
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 SMALL SIGNAL BIAS SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE    
+VIN          0.0         VOUT         0.0         
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+V0         0.0          0.0          0.0         
+
+   TOTAL POWER DISSIPATION:  0.0        WATTS
+
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 OPERATING POINT INFORMATION                          TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+               R01          
+V+              0.0         
+V-              0.0         
+ID              0.0         
+
+
+***>CPU TIME 0s 000ms <***
+
+
+
+
+1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************10:56:57*****************
+
+0NO_TITLE
+0****                 ACCOUNTING INFORMATION                                 TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+Number of nodes                     2
+Number of intrinsic nodes           0
+Number of input signals             1
+Number of resistors                 1
+Number of floating capacitors       0
+Number of grounded capacitors       1
+Number of inductors                 0
+Number of voltage sources           1
+Number of current sources           0
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       0
+Number of SWITCHES                  0
+Number of transmission lines        0
+Total number of elements simulated  3
+Number of equations                 3
+Number of non-zero terms            9
+Percent Zeros                          0
+Number of Newton iterations         1
+Number of AC points                 71
+Evaluation of active devices        0
+Memory size (MB)                    265.6
+
+***>CPU TIME 0s 000ms <***
+
+
+***>GLOBAL CPU TIME 0s 030ms <***
+
+
+***>GLOBAL ELAPSED TIME 0s <***
+
+
+  Job started at  2-Dec-2016 10:56:57
+  Job end at      2-Dec-2016 10:56:57
+
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+
