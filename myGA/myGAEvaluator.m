@@ -1,4 +1,4 @@
-function [it,runTime]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NPMult, NCMult, intervalScalar)
+function [it,runTimeCompensatedForN]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NP, NC, intervalScalar)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
@@ -8,16 +8,17 @@ function [it,runTime]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NPMult, NCMult, in
 
 verbose=0;
 
-N = round(N);
-NP = round(N * NPMult);
-NC = round(N * NCMult);
-%fprintf('P: %d, sd_mut: %d, N: %d, NP: %d, NC: %d, interval: %d \n', P,sd_mut,N,NP,NC,intervalScalar);
+%N = round(N);
+%NP = round(N * NPMult);
+%NC = round(N * NCMult);
 
 %% GENETIC ALGORITHM
 
 % Generation of the intial population
 population=initPopulation(N,V,M);
 population=evaluatePopulation(population,f,V,M,lb,ub);
+%     disp('after evalPopulation')
+%     disp(population)
 population=sortPopulation(population,V,M);
 
 % Main loop
@@ -26,24 +27,26 @@ startTime = cputime;
 it=1;
 stopFlag = 0;
 crowdingDistanceFlag = 0;
+
+populationOffspring = zeros(N+NC,V);
 while stopFlag==0
     
     parents=selectionTournament(population,NP,V,M);
     
     offspring=geneticOperators(parents,NC,P,intervalScalar,sd_mut,V,M,f,lb,ub);
-    population = [ population ; offspring ];
+    populationOffspring = [ population ; offspring ];
     
-    [~,uniqueIndividuals,~] = unique(population(:,1:V),'rows','stable');
-    population = population(uniqueIndividuals,:);
+    [~,uniqueIndividuals,~] = unique(populationOffspring(:,1:V),'rows','stable');
+    populationOffspring = populationOffspring(uniqueIndividuals,:);
 
     if crowdingDistanceFlag == 0
-        population = sortPopulation(population,V,M);
-        population = cropPopulation(population,N);
+        populationOffspring = sortPopulation(populationOffspring,V,M);
+        population = cropPopulation(populationOffspring,N);
     else
-        population = sortPopulationCrowding(population,V,M,N);
+        population = sortPopulationCrowding(populationOffspring,V,M,N);
     end
     
-    [stopFlag, crowdingDistanceFlag] = stopCriterion(it, population(:,V+M+1),population, V+M+2, N);
+    [stopFlag, crowdingDistanceFlag] = stopCriterion(it, population(:,V+M+1),population, V+M+2, N, M);
     it=it+1;
     runTime = cputime - startTime;
     if (runTime > 10)
@@ -52,6 +55,10 @@ while stopFlag==0
 end
 
 runTime = cputime - startTime;
+runTimeCompensatedForN = runTime/N; % lower N is always faster because less calculations.
+                                    % we want to optimize for convergence
+                                    % speed, independent of population
+                                    % size, so compensate for this
 
 % Penalize for not converging at all, and just running randomly. 
 % We have to fix this (that noone in the population converges) by adding some good (manually determined) individuals in the startPopulation. 

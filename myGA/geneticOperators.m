@@ -6,7 +6,7 @@ function children=geneticOperators(parents,NC,P,intervalScalar,sd_mut,V,M,f,lb,u
     for j=1:NC
         % select parents randomly
         twoParentsRows = randi([1,PS],2,1);
-        twoParents = parents(twoParentsRows,:);
+        twoParents = parents(twoParentsRows,1:V);
         firstParent = twoParents(1,1:V);
         secondParent = twoParents(2,1:V);
 
@@ -28,6 +28,14 @@ function children=geneticOperators(parents,NC,P,intervalScalar,sd_mut,V,M,f,lb,u
 %             splitLocation = randi([1,V]);
 %             child = [firstParent(1,1:splitLocation-1), secondParent(1,splitLocation:V)];
 
+            %% take some genes from one parent, some from second parent. Do mutation on all genes afterward.
+%             a=randi([0 1],1,V); % set some random elements to 1
+%             b = 1-a;            % if one row has a 1, other one has 0 (you can't get from both parents at the same time
+%             parentMask = [a;b];  % 1 to select, 0 to not select
+%             genesMatrix = parentMask .* twoParents; % mask the parents with the binary matrix
+%             genes = sum(genesMatrix,1);             % merge the two rows. Only one el per col is not 0, so just add rows
+%             child = genes + 0.01*randn(1,V);     % do some mutation
+            
         else % mutation from parent 1 or parent 2
             if rand() <= 0.5
                 child = sd_mut.*randn(1,V) + firstParent;

@@ -1,5 +1,5 @@
 clear all;
-
+format short g;
 % sweep all Values, get 
 
 % Define the boundaries of the problem.
@@ -7,18 +7,19 @@ lb=  zeros(1,6);
 ub= ones(1,6); 
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
-
-% Use the GA
-
-nbRunsAvg = 10; %take average nb of iterations of this amount of runs.
-PValues = [0.2:0.2:1];
-sdMutValues = [0:0.1:0.2]; 
-NValues = [16:16:64];  
-NPMult = [0:0.2:1]; 
-NCMult = [0:0.2:2]; 
-intervalValues = [1.1:0.1:1.5];
-fprintf('P: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n',length(PValues) , length(sdMutValues) , length(NValues) , length(NPMult) , length(NCMult) , length(intevalValues), nbRunsAvg)
-totalNbTests = length(PValues) * length(sdMutValues) * length(NValues) * length(NPMult) * length(NCMult) * length(intevalValues)* nbRunsAvg;
+%P=0.44 | sd_mut:  0.26 | N: 10.00 | NP:  9.00 | NC:  8.00 | interval:  1.35 
+nbRunsAvg = 1; %take average nb of iterations of this amount of runs.
+PValues = [0.44]%:0.2:1]
+sdMutValues = [0.26]%[0:0.1:0.2]; 
+NValues = [16]%[16:16:64];  
+NPMult = [0.7] %0:0.2:1]; 
+NCMult = [0.6] %[0:0.2:2]; 
+intervalValues = [1.35] %[1.1:0.1:1.5];
+fprintf('Number of tests for each variable: \n \tP: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n', ...
+    length(PValues) , length(sdMutValues) , length(NValues) , ...
+    length(NPMult) , length(NCMult) , length(intervalValues), nbRunsAvg);
+totalNbTests = length(PValues) * length(sdMutValues) * length(NValues) ...
+                * length(NPMult) * length(NCMult) * length(intervalValues)* nbRunsAvg;
 disp(['You asked to run ',num2str(totalNbTests), ' tests.'])
 
 maxRunTime = 3600; % in seconds
@@ -26,48 +27,63 @@ estimatedRunTime = round(5*totalNbTests); % 5s per iteration
 estimatedRunTimeMins= round(estimatedRunTime/60);
 
 runPossible =  (estimatedRunTime < maxRunTime); %hopefully not too long
-disp(['sweeping would take about: ',num2str(estimatedRunTimeMins),' mins, or ', num2str(round(estimatedRunTimeMins/60)), ' hours']);
+disp(['Sweeping would take about: ',num2str(estimatedRunTimeMins),' mins, or ', num2str(round(estimatedRunTimeMins/60)), ' hours']);
 
 
 memoryNeeded = round(totalNbTests * 7 * 64/8 /1e6); % rows * cols * bits/8 /1e6= MB needed to store results
 if (memoryNeeded > 4e9) %4GB
     runPossible = false;
 end
-disp(['storing results requires:  ',num2str(memoryNeeded), ' MB']);
+disp(['Storing results requires:  ',num2str(memoryNeeded), ' MB']);
     
 if runPossible
-    results = sweepParameterValues(PValues, sdMutValues, NValues, NPValues, NCValues);
-    dlmwrite('SweepResults.txt')
+    startTime = cputime;
+    results = sweepParameterValues(nbRunsAvg, PValues, sdMutValues, NValues, NPMult, NCMult, intervalValues, totalNbTests, V, M, lb, ub);
+    runTime = cputime - startTime
+    save sweepResults.mat
     % read back with dlmread('SweepResults.txt')
 else
-    disp(['not doable to run, try something different (',num2str(estimatedRunTimeMins),')']);
+    disp(['Not reasonable to run, try something different (',num2str(estimatedRunTimeMins),')']);
     return;
 end
 
 
- function results = sweepParameterValues(PValues, sdMutValues, NValues, NPMult, NCMult, nbRunsAvg, totalNbTests)
- results = zeros(totalNbTests,7); %columns: PValues, sdMutValues, NValues, NPValues, NCValues, avgTime, avgIt
+ function results = sweepParameterValues(nbRunsAvg, PValues, sdMutValues, NValues, NPMult, NCMult,  intervalValues, totalNbTests, V, M, lb, ub)
+ results = zeros(totalNbTests,8); %columns: P, sdMut, N, NP, NC, intervalValue avgTime, avgIt
 i=1;
 for Pindex=1:length(PValues)
     P = PValues(Pindex);
     for sdMutindex=1:length(sdMutValues)
-        sd_mut = sdMutValues(sdMutindex);
+        sdMut = sdMutValues(sdMutindex);
         for Nindex=1:length(NValues)
             N = NValues(Nindex); 
-            for NPindex=1:length(NPVal)
+            for NPindex=1:length(NPMult)
                 NP = N * NPMult(NPindex); 
-                for NCindex=1:length(NCValues)
+                for NCindex=1:length(NCMult)
                     NC = N * NCMult(NPindex);
-                    for intervalIndex=1:length(intevalValues)
+                    for intervalIndex=1:length(intervalValues)
                         intervalValue = intervalValues(intervalIndex);
+                        fprintf('Now running test %5.0f out of %5.0f \n', i, totalNbTests);
+                        fprintf('\t P: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n', ...
+                                 P ,    sdMut ,     N ,   NP ,    NC ,    intervalValues, nbRunsAvg);
+                        totIt = zeros(nbrunsAvg,1);
+                        totRunTime = zeros(nbRunsAvg,1);
                         for run=1:nbRunsAvg
-                            [it,~,runTime]=myGA(@(x) benchmark(4,x,V),V,M,lb,ub, P, sd_mut, N, NP, NC, intervalValue);
-                            thisTotalTime = thisTotalTime + runTime;
-                            thisTotalIt = thisTotalIt + it;
+                            [it,runTime]=myGAEvaluator(@(x) benchmark(4,x,V),V,M,lb,ub, P, sdMut, N, NP, NC, intervalValue);
+                            totIt(i) =  it;
+                            totRunTime(i) = runTime;
+                            fprintf('\t %5.0f',run);
                         end
-                        thisAvgTime = thisTotalTime ./ nbRunsAvg;
-                        thisAvgIt = thisTotalIt ./ nbRunsAvg;
-                        results(i) = [P, sd_mut, N, NP, NC, thisAvgTime, thisAvgIt];
+                        itAvg = mean(totIt) ;
+                        runTimeAvg = mean(totRunTime);
+                        fprintf('\t itAvg: %5.2f | runTimeAvg: %5.0f\n', itAvg, runTimeAvg);
+                        itMed = median(totIt) ;
+                        runTimeMed = median(totRunTime);
+                        fprintf('\t itMedian: %5.2f |\t runTimeMedian: %5.2f \n', itMed, runTimeMed);
+                        itMax = max(totIt);
+                        runTimeMax = max(totRunTime);
+                        fprintf('\t maxIt: %5.2f |\t maxTime: %5.2f \n', itMax, runTimeMax);
+                        results(i,:) = [P, sdMut, N, NP, NC, intervalValue, runTimeAvg, itAvg,itMed, runTimeMed,itMax, runTimeMax];
                         i = i +1;
                         % now, do the test with different parameters
                     end

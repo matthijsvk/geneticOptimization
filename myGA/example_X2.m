@@ -12,8 +12,12 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 
+<<<<<<< Updated upstream
 
 nbTests = 100;
+=======
+nbTests = 1;
+>>>>>>> Stashed changes
 totIt = zeros(nbTests,1);
 totRunTime = zeros(nbTests,1);
 for i=1:nbTests
@@ -26,10 +30,12 @@ for i=1:nbTests
     drawnow;
     %pause(0.5);
 end
-itAvg = sum(totIt) / nbTests;
-runTimeAvg = sum(totRunTime) / nbTests;
-fprintf('itAvg: %5.2f |\t runTimeAvg: %5.2f \n', it, runTime);
-
+itAvg = mean(totIt) ;
+runTimeAvg = mean(totRunTime);
+fprintf('itAvg: %5.2f |\t runTimeAvg: %5.2f \n', itAvg, runTimeAvg);
+itMed = median(totIt) ;
+runTimeMed = median(totRunTime);
+fprintf('itMedian: %5.2f |\t runTimeMedian: %5.2f \n', itMed, runTimeMed);
 maxIt = max(totIt);
 maxTime = max(totRunTime);
 fprintf('maxIt: %5.2f |\t maxTime: %5.2f \n', maxIt, maxTime);

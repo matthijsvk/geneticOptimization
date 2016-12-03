@@ -59,12 +59,6 @@ else % Multi-objective case : non-domination sorting
         popSize = size(sorted,1);
     end
     popSize = size(sorted,1);
-    
-    % remove weird point at the top left 
-%     for i=1..5 for each point in top 5
-%         top5 = population(1:5,1:V);
-%         for j=1..4 %compare to others in top 5
-            
             
     %% Crowding Distance
     %V+M+1 = rank,  V+M+2 = crowdingDistance

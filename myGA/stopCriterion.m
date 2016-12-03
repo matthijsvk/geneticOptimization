@@ -1,4 +1,4 @@
-function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn, N) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
+function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn, N, M) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
 % Return :  1 if the GA must continue 
 %           0 if the GA must stop
     crowdingFlag = 0;
@@ -11,7 +11,9 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
     %               -> each time you remove a point, recalculate scores, so
     %               as not to delete many point close together
     if populationRank == 1
-        crowdingFlag = 1;
+        if M>1
+            crowdingFlag = 1;
+        end
         % if median of crowding distance < x, most values are well
         % distributed -> we can stop
         cdVector = population( :, crowdingDistanceColumn );
@@ -27,31 +29,29 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         
         % idea 2: lowest crowding distance has to be x% of the average
         % (without counting Inf of course)
-%         if (min(cdVector) > 0.75*median(cdVector )) ...
-%             && ( max(cdVector) < 1.25*median(cdVector) )
-%             stopFlag = 1;
-%         end
+        if (min(cdVector) > 0.8*median(cdVector )) ...
+            && ( max(cdVector) < 1.2*median(cdVector) )
+            stopFlag = 1;
+        end
         
 %         if ( mean(cdVector) / (max(cdVector) - min(cdVector)) > 1.5) 
 %             stopFlag = 1;
 %             disp(['We re stopping at the ',num2str(it), ' th iteration']);
 %         end
-        
-        % idea 3: don't take the absolute max and min, but 25th percentile from top
-        % and bottom
-%         if (min(cdVector) > 0.8*mean(cdVector(N/4:end)) ) ...
-%             && ( min(cdVector(1:N/4)) < 1.25*mean(cdVector(N/4:end)) )
-%             stopFlag = 1;
-%         end
-        
+       
         % idea 4: values higher than middle of 1 and avg(cdVector) are not
         % considered
-        cdVectorReduced = cdVector(cdVector < 0.5*(1+median(cdVector)) );
-        
-        if (min(cdVectorReduced) > 0.8*median(cdVectorReduced ) ) ...
-            && ( max(cdVectorReduced) < 1.2*median(cdVectorReduced) )
-            stopFlag = 1;
-        end
+
+%         cdVector = cdVector(cdVector < 0.5*(1+median(cdVector)) ); %don't consider outliers
+%         if (size(cdVector) > N/4) % if lots of NaN or Inf, don't stop the algorithm
+%             if (min(cdVector) > 0.8*median(cdVector ) ) ...
+%                 && ( max(cdVector) < 1.2*median(cdVector) )
+%                 stopFlag = 1;
+%             end
+%         else
+%             disp('too many outliers');
+%             disp(cdVector);
+%         end
     end
 end
 

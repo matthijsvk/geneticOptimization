@@ -7,12 +7,13 @@ function population=evaluatePopulation(population,f,V,M,lb,ub)
     population = unnormalizePopulation(population, lb,ub);
     
     % onedimensional M: scores = f(population)
-    popLength = size(population,1);
-    scores = zeros(popLength,M);
-    for i=1:popLength
-        scores(i,:) = f(population(i,1:V));
-    end
+%         popLength = size(population,1);
+%         scores = zeros(popLength,M);
+%         for i=1:popLength
+%             scores(i,:) = f(population(i,1:V));
+%         end
+    scores = f(population(:,1:V));
     
-    population = normalizePopulation(population, lb,ub);
+    population = normalizePopulation(population, lb,ub);  
     population = [population,scores,ranks,crowdingDistance];
 end

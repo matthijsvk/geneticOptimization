@@ -23,7 +23,6 @@ function selection=selectionTournament(population,NP,V,M)
             second = population(competitorsRows(1),:);
             selected = selectBest(first,second,V, M);
         end
-        
         selection(i,:) = selected;
     end
 

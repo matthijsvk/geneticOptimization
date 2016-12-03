@@ -6,9 +6,11 @@ clear all;
 % V =length(lb);
 % ub=[5,5];
 % M=1;
-%     P       sd_mut    N     NPMult  NCMult  intervalScalar
-lb=  [0.1,    0.001,    8,    0.1,    0.1,      1];
-ub=  [1,      2,        64,   1,      2,      1.5];
+%     N     P       sd_mut  NP  NC  intervalScalar
+Nmin = 8;
+Nmax = 64;
+lb=  [8,    0.1,    0.001,  0.1,    0.1,      1];
+ub=  [64,   1,      2,      1,      2,      1.5];
 V = length(lb);
 M = 1;
 
