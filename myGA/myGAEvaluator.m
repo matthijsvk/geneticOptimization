@@ -49,7 +49,7 @@ while stopFlag==0
     [stopFlag, crowdingDistanceFlag] = stopCriterion(it, population(:,V+M+1),population, V+M+2, N, M);
     it=it+1;
     runTime = cputime - startTime;
-    if (runTime > 10)
+    if (runTime > 50)
         stopFlag = 1;
     end
 end

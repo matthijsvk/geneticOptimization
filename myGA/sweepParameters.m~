@@ -8,12 +8,12 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 %P=0.44 | sd_mut:  0.26 | N: 10.00 | NP:  9.00 | NC:  8.00 | interval:  1.35 
-nbRunsAvg = 10; %take average nb of iterations of this amount of runs.
+nbRunsAvg = 8; %take average nb of iterations of this amount of runs.
 PValues = [0.2:0.2:0.95]
-sdMutValues = [0.01:0.2:1]; 
-NValues = [16:16:64];  
-NPMult = [0.1:0.2:1]; 
-NCMult = [0.1:0.3:2]; 
+sdMutValues = [0.01:0.2:1]
+NValues = [32]%:16:64];  
+NPMult = [0.2:0.2:1]
+NCMult = [0.2:0.2:2]
 intervalValues = [1.35] %[1.1:0.1:1.5];
 fprintf('Number of tests for each variable: \n \tP: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n', ...
     length(PValues) , length(sdMutValues) , length(NValues) , ...
@@ -63,7 +63,7 @@ for Pindex=1:length(PValues)
                     NC = round(N .* NCMult(NCindex));
                     for intervalIndex=1:length(intervalValues)
                         intervalValue = intervalValues(intervalIndex);
-                        fprintf('Now running test %5.0f out of %5.0f \n', i, totalNbTests);
+                        fprintf('Now running test %5.0f out of %5.0f \n', i, totalNbTests/);
                         fprintf('\t P: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n', ...
                                  P ,    sdMut ,     N ,   NP ,    NC ,    intervalValues, nbRunsAvg);
                         totIt = zeros(nbRunsAvg,1);
@@ -72,7 +72,6 @@ for Pindex=1:length(PValues)
                             [it,runTime]=myGAEvaluator(@(y) benchmark(4,y,V),V,M,lb,ub, P, sdMut, N, NP, NC, intervalValue);
                             totIt(run) =  it;
                             totRunTime(run) = runTime;
-                            fprintf('\t %5.0f',run);
                         end
                         itAvg = mean(totIt) ;
                         runTimeAvg = mean(totRunTime);
@@ -82,8 +81,8 @@ for Pindex=1:length(PValues)
                         fprintf('\t itMedian: %5.2f |\t runTimeMedian: %5.2f \n', itMed, runTimeMed);
                         itMax = max(totIt);
                         runTimeMax = max(totRunTime);
-                        fprintf('\t maxIt: %5.2f |\t maxTime: %5.2f \n', itMax, runTimeMax);
-                        results(i,:) = [P, sdMut, N, NP, NC, intervalValue, runTimeAvg, itAvg,itMed, runTimeMed,itMax, runTimeMax];
+                        fprintf('\t ItMax: %5.2f |\t runtTimeMax: %5.2f \n', itMax, runTimeMax);
+                        results(i,:) = [P, sdMut, N, NP, NC, intervalValue, itAvg, runTimeAvg ,itMed, runTimeMed, itMax, runTimeMax];
                         disp(results(i,:))
                         i = i +1;
                         % now, do the test with different parameters
