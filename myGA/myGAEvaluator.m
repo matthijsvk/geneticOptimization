@@ -1,4 +1,4 @@
-function [it,runTimeCompensatedForN]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NP, NC, intervalScalar)
+function [it,runTime]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NP, NC, intervalScalar)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
@@ -64,12 +64,12 @@ runTimeCompensatedForN = runTime/N; % lower N is always faster because less calc
 % We have to fix this (that noone in the population converges) by adding some good (manually determined) individuals in the startPopulation. 
 % They will reproduce becauce they finish before 500 iterations.
 if it>499  
-    runTime = 100;
+    runTime = 1000;
 end
 
 % it hasn't converged at all
 if ( max(population(V+1)) > 1) || (max(population(V+2)) > 1) % V+1 : x1 (horizontal), V+2 = x2 (vertical)
-    runTime = 100;
+    runTime = 1000;
 end
 
 end
