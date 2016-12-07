@@ -1,2 +1,3 @@
-START report: Fri Dec  2 12:39:52 2016 
-** Warning: (eldo-346)  COMMAND ".PRINTFILE": node VOUT/VIN undeclared.
+START report: Tue Dec  6 09:15:02 2016 
+** Error: (eldo-434)  In file "./interfaceEldo/circuit3/ac" line 33:
++   COMMAND ".DATA list": The number of values (3) does not match the number of parameters (7).

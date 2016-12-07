@@ -1,0 +1,50 @@
+
+.option compat
+.lib model
+
+.global 0 
+.param X1=1, X2=1, X3=1, X4=1, X5=1, X6=1, X7=1, X8=1, X9=1, X10=1
+
+* drain gate source bulk
+* drain gate source bulk
+m5 n1 vin1 ACgnd 0 CMOSN w='X1' l='X2'
+m6 n2 vin2 ACgnd 0 CMOSN w='X1' l='X2'
+
+m7 vout1 biasCascode n1 0 CMOSN w='X3' l='X4'
+m8 vout2 biasCascode n2 0 CMOSN w='X3' l='X4'
+
+m9 ACgnd bias gnd 0 CMOSN w='X5' l=0.18u
+
+R1 vdd vout1 'X6'
+R2 vdd vout2 'X6'
+
+R3 vdd vinCM 1G
+R4 vinCM vss 1G
+
+R5 vdd biasCascode 'X7'
+R6 biasCascode vss 'X8'
+
+R7 vdd bias 'X9'
+R8 bias vss 'X10'
+
+C1 vout1 0 5f
+C2 vout2 0 5f
+
+* vdd and vbias
+V0 vdd 0 dc 1.8
+
+Vsource vin1 vinCM ac 1
+Vsource2 vin2 vinCM ac -1
+
+
+.ac dec 10 100 1G data=list
+
+.data list X1 X2 X3 X4 X5 X6 X7 X8 X9 X10
+xxPARAMxx
+.enddata
+
+.printfile ac v(vout1,vout2) file=acResult
+
+
+
+

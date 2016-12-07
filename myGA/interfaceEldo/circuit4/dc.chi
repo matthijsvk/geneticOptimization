@@ -1,9 +1,9 @@
-  Run on pc-klas1-14.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
 
 
 ***** SYSTEM INFORMATION ...
 
-*** User  : r0364010@pc-klas1-14.esat.kuleuven.be
+*** User  : r0364010@pc-klas1-16.esat.kuleuven.be
 *** OS    : \S [VCO = aol]
 *** CPU   :
     Intel(R) Core(TM) i5-3450 CPU @ 3.10GHz
@@ -11,17 +11,17 @@
     Hyper-Threading Technology        : disabled
     Number of cpu cores               : 4
     Number of logical processors      : 4
-*** Freq  : 3311.914MHz
+*** Freq  : 3342.671MHz
 *** Cache : 6144 KB
-*** MEM   : 7908024 kB
-*** Date  : Fri Dec  2 20:15:21 2016
+*** MEM   : 7910216 kB
+*** Date  : Tue Dec  6 08:30:13 2016
 
 /esat/micas-data/software/ams_2014.1/aol/bin/eldo_64.exe -i interfaceEldo/circuit4/dc 
 
 
 ***** PRE-PROCESSING ...
 
-1******* 2-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******20:15:21******
+1******* 6-Dec-16 *******  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  *******08:30:13******
 
 0
 
@@ -153,11 +153,47 @@
    28  .DC data=list
    29  
    30  .DATA list X1 X2 X3 X4 X5
-   31  + 80669.1624 0.0043114 0.0049644 0.2648 1.0278 
-   32  .ENDDATA
-   33  
-   34  .PRINTFILE dc i(v0) file=dcResult
-   35  .END
+   31  + 40178.3026 0.005 0.005 1.6301 0.27387 
+   32  + 40178.2911 0.005 0.005 1.6303 0.27387 
+   33  + 40178.2951 0.005 0.005 1.6288 0.27387 
+   34  + 40178.3069 0.005 0.005 1.6228 0.27387 
+   35  + 40178.321 0.005 0.005 1.6277 0.27387 
+   36  + 40178.2828 0.005 0.005 1.628 0.27387 
+   37  + 40178.2949 0.005 0.005 1.6269 0.27387 
+   38  + 40178.2908 0.005 0.005 1.6192 0.27387 
+   39  + 40178.2863 0.005 0.005 1.6228 0.27387 
+   40  + 100000 0.005 1.8e-07 1.8 0 
+   41  + 40178.2989 0.005 0.005 1.6192 0.27387 
+   42  + 40178.2804 0.005 0.005 1.6291 0.27387 
+   43  + 40178.313 0.005 0.005 1.6224 0.27387 
+   44  + 40178.3045 0.005 0.005 1.628 0.27387 
+   45  + 40178.3201 0.005 0.005 1.6308 0.27387 
+   46  + 40178.2785 0.005 0.005 1.6276 0.27387 
+   47  + 40178.2804 0.005 0.005 1.6291 0.27387 
+   48  + 40178.2785 0.005 0.005 1.6276 0.27387 
+   49  + 40178.3115 0.005 0.005 1.6287 0.27387 
+   50  + 40178.2804 0.005 0.005 1.6278 0.27387 
+   51  + 40178.2989 0.005 0.005 1.6192 0.27387 
+   52  + 40178.2776 0.005 0.005 1.6301 0.27387 
+   53  + 40178.2979 0.005 0.005 1.629 0.27387 
+   54  + 40178.2804 0.005 0.005 1.6281 0.27387 
+   55  + 100000 1.8e-07 0.005 0 1.8 
+   56  + 40178.3066 0.005 0.005 1.6278 0.27387 
+   57  + 40178.2804 0.005 0.005 1.6278 0.27387 
+   58  + 40178.2819 0.005 0.005 1.6228 0.27387 
+   59  + 40178.2994 0.005 0.005 1.6227 0.27387 
+   60  + 40178.3002 0.005 0.005 1.6281 0.27387 
+   61  + 40178.2951 0.005 0.005 1.6288 0.27387 
+   62  + 40178.2828 0.005 0.005 1.628 0.27387 
+   63  + 40178.2979 0.005 0.005 1.629 0.27387 
+   64  + 40178.2994 0.005 0.005 1.6298 0.27387 
+   65  + 40178.2911 0.005 0.005 1.6303 0.27387 
+   66  + 40178.288 0.005 0.005 1.6191 0.27387 
+   67  + 40178.3026 0.005 0.005 1.6301 0.27387 
+   68  .ENDDATA
+   69  
+   70  .PRINTFILE dc i(v0) file=dcResult
+   71  .END
 
 End of file 
 
@@ -201,13 +237,13 @@ Total number of elements simulated  10
 
 Eldo VERSION : ELDO 14.1 patch1 (64 bits) Fri Jul  4 10:16:17 GMT 2014
 
-*** DATE:  2-Dec-2016 20:15:21
+*** DATE:  6-Dec-2016 08:30:13
 
 *** TITLE: NO_TITLE
 
 TEMPERATURE : 25.000000 degrees C
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
+1*************** 6-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************08:30:13*****************
 
 0NO_TITLE
 0****                 MODELS PARAMETERS                                    TEMPERATURE =   25.000 DEG C
@@ -352,7 +388,7 @@ Warning 240: OBJECT "M3":  Rds at current temperature = 0.000123338 is less than
 
 
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
+1*************** 6-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************08:30:13*****************
 
 0NO_TITLE
 0****                 OPTION SUMMARY                                         TEMPERATURE =   25.000 DEG C
@@ -423,7 +459,7 @@ TIMING         = 0        MODWL          = 1        ULOGIC         = 0
 
 
 
-1*************** 2-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************20:15:21*****************
+1*************** 6-Dec-2016 ***********************  ELDO 14.1 patch1 (64 bits)  (v7.11_1.1)  ***********************08:30:13*****************
 
 0NO_TITLE
 0****                 ACCOUNTING INFORMATION                                 TEMPERATURE =   25.000 DEG C
@@ -454,24 +490,24 @@ Total number of elements simulated  10
 Number of equations                 3
 Number of non-zero terms            7
 Percent Zeros                      22.22
-Number of DC points                 1
-Number of Newton iterations         6
-Average number of Newton iterations 6.000e+00
-Evaluation of active devices        33
+Number of DC points                 37
+Number of Newton iterations         78
+Average number of Newton iterations 2.108e+00
+Evaluation of active devices        369
 Memory size (MB)                    265.9
 
-***>CPU TIME 0s 000ms <***
+***>CPU TIME 0s 010ms <***
 
 ***>MESSAGE SUMMARY: 3 warnings
 
-***>GLOBAL CPU TIME 0s 010ms <***
+***>GLOBAL CPU TIME 0s 020ms <***
 
 
 ***>GLOBAL ELAPSED TIME 0s <***
 
 
-  Job started at  2-Dec-2016 20:15:21
-  Job end at      2-Dec-2016 20:15:21
+  Job started at  6-Dec-2016 08:30:13
+  Job end at      6-Dec-2016 08:30:13
 
-  Run on pc-klas1-14.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
+  Run on pc-klas1-16.esat.kuleuven.be (Linux 3.10.0-327.36.3.el7.x86_64)
 

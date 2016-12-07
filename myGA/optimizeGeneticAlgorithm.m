@@ -11,11 +11,11 @@ clear all;
 % population size. The calculation of this convergence time happens in
 % myGAEvaluator.m
 
-%     P       sd_mut    N     NPMult  NCMult  intervalScalar
-lb=  [0.1,    0.001,    8,    0.1,    0.1,      1];
-ub=  [1,      2,        64,   1,      2,      1.5];
+%     P       sd_mut    sd_mut_rec  N     NPMult  NCMult 
+lb=  [0.1,    0.001,    0.00001,    8,    0.1,    0.1];
+ub=  [1,      2,        1,          64,   1,      2];
 V = length(lb);
-M = 1;
+M = 2;
 
 % Use the GA
 [it,population,runTime]=myOptimizeGA(@(x) benchmark(5,x,V),V,M,lb,ub);

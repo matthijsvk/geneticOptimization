@@ -14,6 +14,7 @@ else % Multi-objective case : non-domination sorting
     
     for currentRank=1:nbRanks-1 % which ones do not belong in rank 1? move them to rank 2
         unsorted = sortrows(unsorted,rankColumn);
+        minValues = min(unsorted(:,V+1:V+M));
         for currentPointIndex=1:popLength
             currentPoint = unsorted(currentPointIndex,:);
             if currentPoint(1,rankColumn) == currentRank
@@ -23,7 +24,7 @@ else % Multi-objective case : non-domination sorting
                     checkPoint = unsorted(checkPointIndex,:);
                     if checkPoint(1,rankColumn) == currentRank
                         % dominating if all values are lower
-                        comparison = currentPoint(1,V+1:V+M) - checkPoint(1,V+1:V+M) >= -eps ;
+                        comparison = currentPoint(1,V+1:V+M) - checkPoint(1,V+1:V+M) >= min(-2*eps,-0.0001.*abs(minValues));
                         if min(currentPoint(1,V+1:V+M) == checkPoint(1,V+1:V+M))== 0 % check that it doesn't compare against itself
                             % only if comparison is all 1's we move it to the
                             % next rank (only then some other point is

@@ -1,0 +1,12 @@
+START report: Tue Dec  6 12:58:36 2016 
+** Warning: (eldo-204)  In file "./interfaceEldo/circuit6/dc" line 25:
++    OBJECT "R3": Already defined.
+** Warning: (eldo-204)  In file "./interfaceEldo/circuit6/dc" line 26:
++    OBJECT "R4": Already defined.
+** Warning: (eldo-112)   NODE "VOUT": Connected to grounded capacitors only.
++     This node has been removed from the netlist.
+** Warning: (eldo-240)  OBJECT "M5":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
+** Warning: (eldo-240)  OBJECT "M6":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
+** Warning: (eldo-240)  OBJECT "M7":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
+** Warning: (eldo-240)  OBJECT "M8":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
+** Warning: (eldo-240)  OBJECT "M9":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.

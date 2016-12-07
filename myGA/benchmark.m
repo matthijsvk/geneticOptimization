@@ -58,10 +58,10 @@ switch nb
     case 5 % optimize the algorithm itself
         P = x(:,1);
         sd_mut = x(:,2);
-        N = x(:,3);
-        NPMult = x(:,4);
-        NCMult = x(:,5);
-        intervalScalar = x(:,6);
+        sd_mut_rec = x(:,3);
+        N = x(:,4);
+        NPMult = x(:,5);
+        NCMult = x(:,6);
         
         % print so we can follow what's happening
         N = round(N);
@@ -78,26 +78,28 @@ switch nb
         V = 6;
         M = 2;
         
-        f= zeros(s,1);
-        
+        f= zeros(s,2);
+        f1 = zeros(s,1);f2 = zeros(s,2);
         % Parallelize the for loop
-        parfor i = 1 : s
-            nbTests = 2;
+        for i = 1 : s
+            nbTests = 1;
             % benchmark value should be runtime till convergence. Run on ZDT6
 %             disp('Testing the following configuration: ')
 %             disp([ P(i,:), sd_mut(i,:), N(i,:), NP(i,:), NC(i,:), intervalScalar(i,:)]);
             totIt = zeros(nbTests,1);
             totRunTime = zeros(nbTests,1);
             for j=1:nbTests
-                [it,runTime]= myGAEvaluator(@(y) benchmark(4,y,V),V,M,lb(i,:),ub(i,:),P(i,:), sd_mut(i,:), N(i,:), NP(i,:), NC(i,:), intervalScalar(i,:));
-                totIt(i) =  it;
-                totRunTime(i) = runTime;
+                [it,runTime]= myGAEvaluator(@(y) benchmark(4,y,V),V,M,lb(i,:),ub(i,:),P(i,:), sd_mut(i,:),sd_mut_rec(i,:), N(i,:), NP(i,:), NC(i,:));
+                totIt(j) =  it;
+                totRunTime(j) = runTime;
             end
             itAvg = mean(totIt) ;
             runTimeAvg = mean(totRunTime);
-%             fprintf('\t itAvg: %5.2f |\t runTime: %5.2f \n', it, runTimeAvg);
-            f(i,1) = runTimeAvg;
+            fprintf('\t itAvg: %5.0f |\t runTime/N: %5.4f \n', itAvg, runTimeAvg);
+            f1(i) = runTimeAvg;
+            f2(i) = itAvg;
         end 
+        f=[f1,f2]
 end
 
 

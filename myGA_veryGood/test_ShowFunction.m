@@ -1,0 +1,13 @@
+clear all;
+
+% Show a graph of the second function in the benchmark
+
+n=4;
+prec=0.05
+[X,Y]=meshgrid(-n:prec:n,-n:prec:n);
+for j=1:size(X,1)
+    for k=1:size(X,2)
+        Z(j,k)=benchmark(2,[X(j,k) Y(j,k)]);
+    end
+end 
+surf(X,Y,Z)

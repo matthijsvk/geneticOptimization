@@ -9,7 +9,7 @@ function obj = interfaceEldo(filename,x)
     
     %% get P, area
     v =1.8;
-    i = dataDC;
+    i = dataDC
     Pvector = abs(v*i);
 %     fprintf('Power:   %d ',Pvector)
 %     
@@ -34,11 +34,11 @@ function obj = interfaceEldo(filename,x)
     BWresults = zeros(nbCircuits,1);
     
     for j=1:nbCircuits
-        Zmagn= sum([dataAC{j}.RX dataAC{j}.IX].^2,2);
+        Zmagn= sqrt(sum([dataAC{j}.RX dataAC{j}.IX].^2,2));
         Zph= atan(dataAC{j}.IX ./ dataAC{j}.RX);
        
         %% get G, BW, GBW, unityGBW
-        Zmagn = Zmagn./0.001;
+        Zmagn = Zmagn;
         Gain = Zmagn(1);
         % find GBW: see where Zamp (=Vout goes below Vin*0.708)
         BWvector = dataAC{j}.f(Zmagn < 0.708*Zmagn(1)); 
@@ -77,13 +77,18 @@ function obj = interfaceEldo(filename,x)
         GBWresults(j) = GBW;
         unityGBWresults(j) = unityGBW;
         BWresults(j) = BW;
-
+        
+        %obj(j,1)=-Gain;
+        obj(j,1)=Pvector(j);
+        obj(j,2)=-GBW; %minus because we want to maximize GBW (and the GA tries to minimize everything)
+        disp([BW, Gain, GBW])
+        
     end
     
     % Compute objectives
 %     obj(:,1)=-GBWresults; %minus because we want to maximize GBW (and the GA tries to minimize everything)
 %     obj(:,2)=Pvector;
-    obj(:,1)=-Gain;
+%     obj(:,1)=-Gain;
 
     
 end

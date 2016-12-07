@@ -1,4 +1,4 @@
-function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn, N, M) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
+function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, crowdingDistanceColumn, M) %,oldPopulationObjectives, newPopulationObjectives, notChangingLimit,V,M)
 % Return :  1 if the GA must continue 
 %           0 if the GA must stop
     crowdingFlag = 0;
@@ -29,8 +29,8 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
         
         % idea 2: lowest crowding distance has to be x% of the average
         % (without counting Inf of course)
-        if (min(cdVector) > 0.8*median(cdVector )) ...
-            & ( max(cdVector) < 1.2*median(cdVector) )
+        if (min(cdVector) > 0.75*median(cdVector )) ...
+            & ( max(cdVector) < 1.25*median(cdVector) )
             stopFlag = 1;
         end
         
@@ -41,7 +41,6 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
        
         % idea 4: values higher than middle of 1 and avg(cdVector) are not
         % considered
-
 %         cdVector = cdVector(cdVector < 0.5*(1+median(cdVector)) ); %don't consider outliers
 %         if (size(cdVector) > N/4) % if lots of NaN or Inf, don't stop the algorithm
 %             if (min(cdVector) > 0.8*median(cdVector ) ) ...

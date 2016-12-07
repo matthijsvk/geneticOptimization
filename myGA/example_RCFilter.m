@@ -5,19 +5,40 @@ format short g;
 
 addpath('interfaceEldo');
 eldo_setup;
-pMinWidth = 0.27*1e-6;
-nMinWidth = 0.18*1e-6;
-nMaxWidth = 50*1e-4;
-% %    R1     R2      w1          w2          wbias       Vbias   Vcm
-% lb=[ 1e3    1e3     nMinWidth   nMinWidth   nMinWidth   0       0];
-% ub=[ 10e3   10e3    nMaxWidth   nMaxWidth   nMaxWidth   1.8     1.8] ;
+minWidth = 0.27*1e-6;
+maxWidth = 27*1e-6;
+minLength = 0.18*1e-6;
+maxLength = 27*1e-6;
 
-%    R1       w1            wbias       Vbias   Vcm
-lb=[ 1e3      nMinWidth     nMinWidth   0       0];
-ub=[ 10e4     nMaxWidth     nMaxWidth   1.8     1.8] ;
+
+% circuit 3
+% %    R1     R2      w1          w2          wbias       Vbias   Vcm
+% lb=[ 1e3    1e3     minWidth   minWidth   minWidth   0       0];
+% % ub=[ 10e3   10e3    maxWidth   maxWidth   maxWidth   1.8     1.8] ;
+
+% circuit4
+% %    R1       w1            wbias       Vbias   Vcm
+% lb=[ 1e3      minWidth     minWidth   0       0];
+% ub=[ 10e4     maxWidth     maxWidth   1.8     1.8] ;
+
+% circuit 5
+%    w1            l1           w2          l2          wbias       Vbias  
+% lb=[ minWidth     minLength   minWidth   minLength  minWidth      0];
+% ub=[ maxWidth     maxLength   maxWidth   maxLength  maxWidth    1.8] ;
+
+% circuit 5
+%    w1            l1           w2          l2          wbias       Vbias  
+% lb=[ minWidth     minLength   minWidth   minLength  minWidth      0];
+% ub=[ maxWidth     maxLength   maxWidth   maxLength  maxWidth    1.8] ;
+
+% circuit 6
+%    1              2           3           4       5           6       7
+%    w5, w6            l5,l6   w7,w8      l6,l7      w9       R         l5                                                                                                                                                                     
+lb=[ minWidth     minLength   minWidth   minLength  minWidth   1   1   1    1   1];
+ub=[ maxWidth     maxLength   maxWidth   maxLength  maxWidth   1e9 1e9 1e9  1e9 1e9];
 
 V = length(lb);
-M = 1; %GBW, BW, Power
+M = 2; %GBW, BW, Power
 
 % % just for testing
 % x=rand(10,7);
@@ -28,4 +49,4 @@ M = 1; %GBW, BW, Power
 
 % circuit 3: 7 parameters
 % circuit 4: 5 parameters (w1 = w2; R1 - R2)
-res=myGA(@(x) interfaceEldo('circuit4',x),V,M,lb,ub);
+res=myGA(@(x) interfaceEldo('circuit6',x),V,M,lb,ub);
