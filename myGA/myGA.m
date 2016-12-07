@@ -7,8 +7,14 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 % ub = upper bound vector.
 
 %% Some settings
-verbose = 0;
+verbose = 1;
 variableParams = 0;
+
+if variableParams == 0
+    intervalScalar = 0;
+else
+    sd_mut_rec = 0;
+end
 
 %% DEFINITION OF THE PARAMETERS
 % from the sweep: [0.600000000000000,0.810000000000000,32,32,13,1.35000000000000,153.250000000000,1.30124999999975,135,1.17999999999938,273,2.37999999999920]
@@ -32,7 +38,7 @@ intervalScalar = 0.0;
 %P=0.44 | sd_mut:  0.26 | N: 10.00 | NP:  9.00 | NC:  8.00 | interval:  1.35 
 P_start = 0.44;
 sd_mut_start = 0.26;
-N_start = 10; %N = N_start;
+N_start = 10; N = N_start;
 NP_start = 9;
 NC_start = 32;
 intervalScalar_start = 1.35;
@@ -98,7 +104,7 @@ while stopFlag==0
 %         sd_mut = sd_mut_end;
 %     end
     parents= selectionTournament(population,NP,V,M,crowdingDistanceFlag);
-    offspring= geneticOperators(parents,NC,P,0,sd_mut,sd_mut_rec,V,M,f,lb,ub);
+    offspring= geneticOperators(parents,NC,P,intervalScalar,sd_mut,sd_mut_rec,V,M,f,lb,ub);
     population = [ population ; offspring ];
     
     [~,uniqueIndividuals,~] = unique(population(:,1:V),'rows','stable');

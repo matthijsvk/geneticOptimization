@@ -28,10 +28,10 @@ while abs(prevItAvg - itAvg) > 1
     %     disp([it, runTime])
 
         % draw so we can visualize the population results
-%         illustratePopulation(population,V,M,lb,ub,it);
-    %     disp(population)
-    %     drawnow;
-         %pause(2);
+        illustratePopulation(population,V,M,lb,ub,it);
+        disp(population)
+        drawnow;
+        pause(2);
     end
     prevItAvg = itAvg;
     itAvg = mean(totIt) ;

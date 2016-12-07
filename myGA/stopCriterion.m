@@ -34,6 +34,11 @@ function [stopFlag, crowdingFlag] =stopCriterion(it,populationRank, population, 
             stopFlag = 1;
         end
         
+        % https://en.wikipedia.org/wiki/Coefficient_of_variation
+        % 1sigma = 68%, 2 std = 95, 3s = 99%
+        % CV = s/m = relative interval around mean where 68% of pop is
+        if 2*std(cdVector)/mean(cdVector) > 0.2  
+        
 %         if ( mean(cdVector) / (max(cdVector) - min(cdVector)) > 1.5) 
 %             stopFlag = 1;
 %             disp(['We re stopping at the ',num2str(it), ' th iteration']);
