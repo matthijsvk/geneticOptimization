@@ -65,7 +65,7 @@ while stopFlag==0
     popUnnormalized = unnormalizePopulation(population(:,1:V),lb,ub);
     disp('Population this iteration: ')
     disp([popUnnormalized,population(:,V+1:end)])
-    pause(5);
+%     pause(5);
 
     % use this to enable/disable variable P and sd_mut.
     % Setting to crowdingDistanceFlag uses first variable, and when everything reached rank 1 fixed

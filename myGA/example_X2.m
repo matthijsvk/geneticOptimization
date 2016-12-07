@@ -31,7 +31,7 @@ while abs(prevItAvg - itAvg) > 1
 %         illustratePopulation(population,V,M,lb,ub,it);
     %     disp(population)
     %     drawnow;
-    %     pause(0.5);
+         %pause(2);
     end
     prevItAvg = itAvg;
     itAvg = mean(totIt) ;

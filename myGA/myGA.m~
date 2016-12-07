@@ -7,7 +7,7 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 % ub = upper bound vector.
 
 %% Some settings
-verbose = 0;
+verbose = 1;
 variableParams = 0;
 
 %% DEFINITION OF THE PARAMETERS
@@ -15,10 +15,7 @@ variableParams = 0;
 % manual: 24,12,24,0.8,0.1,1.2
 
 % P sd_mut  sd_rec N   NP   NC 
-%P=0.49658  ;sd_mut= 0.18563; sd_mut_rec=1e-05 ; Nbase=24   ;N=round(Nbase);NP=round(N*0.90489);NC=round(N*1.4831);
-P= 0.5 ; sd_mut=0.2 ; sd_mut_rec= 0.001 ; Nbase = 20; N=round(Nbase);NP=round(0.5*Nbase); NC=round(N*0.95);% should be 0.0835*20 = 1.67s
-
-%0.49658            2        1e-05            8      0.90489       1.4831
+P=0.49602 ;sd_mut= 0.18563; std_mut_rec=1e-05 ; Nbase=9.4426  ;N=round(Nbase);NP=round(N*0.90519);NC=round(N*1.4767);
 %0.89136      0.03533     0.023195       43.322            1        1.988      %0.28953          190
 %0.49602      0.18563        1e-05       9.4426      0.90519       1.4767     %0.068889     
 % N = 32;         % Population size
@@ -98,7 +95,7 @@ while stopFlag==0
 %         sd_mut = sd_mut_end;
 %     end
     parents= selectionTournament(population,NP,V,M,crowdingDistanceFlag);
-    offspring= geneticOperators(parents,NC,P,0,sd_mut,sd_mut_rec,V,M,f,lb,ub);
+    offspring= geneticOperators(parents,NC,P,0,sd_mut,std_mut_rec,V,M,f,lb,ub);
     population = [ population ; offspring ];
     
     [~,uniqueIndividuals,~] = unique(population(:,1:V),'rows','stable');

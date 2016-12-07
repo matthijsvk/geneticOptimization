@@ -1,4 +1,5 @@
 clear all;
+format short g
 
 %% This function runs the GA 'on itself' in order to find better parameters for the GA.
 %% The top GA (myOpimizeGA) has manually set parameters, which allow for reasonably fast convergence

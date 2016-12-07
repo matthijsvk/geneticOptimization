@@ -75,9 +75,9 @@ runTime = runTime/N; % lower N is always faster because less calculations.
 if it>499  
     it = it + rand(1,1);
     if crowdingDistanceFlag == 1 %give points for all rank 1
-        runTime = 5 + 0.1*rand(1,1);
-    else
         runTime = 100 + rand(1,1);
+    else
+        runTime = 1000 + rand(1,1);
     end
 end
 

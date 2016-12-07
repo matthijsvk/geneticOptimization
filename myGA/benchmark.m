@@ -79,9 +79,9 @@ switch nb
         M = 2;
         
         f= zeros(s,2);
-        f1 = zeros(s,1);f2 = zeros(s,2);
+        f1 = zeros(s,1);f2 = zeros(s,1);
         % Parallelize the for loop
-        for i = 1 : s
+        parfor i = 1 : s
             nbTests = 1;
             % benchmark value should be runtime till convergence. Run on ZDT6
 %             disp('Testing the following configuration: ')
@@ -95,11 +95,11 @@ switch nb
             end
             itAvg = mean(totIt) ;
             runTimeAvg = mean(totRunTime);
-            fprintf('\t itAvg: %5.0f |\t runTime/N: %5.4f \n', itAvg, runTimeAvg);
+            fprintf('\t itAvg: %5.0f |\t runTime/N: %5.4f \n', itAvg, runTimeAvg)
             f1(i) = runTimeAvg;
             f2(i) = itAvg;
         end 
-        f=[f1,f2]
+        f=[f1,f2];
 end
 
 
