@@ -25,13 +25,13 @@ while abs(prevItAvg - itAvg) > 1
         [it,population,runTime]= myGA(@(x) benchmark(4,x,V),V,M,lb,ub);
         totIt(i,1) =  it;
         totRunTime(i,1) = runTime;
-    %     disp([it, runTime])
+        disp([it, runTime])
 
         % draw so we can visualize the population results
         illustratePopulation(population,V,M,lb,ub,it);
         disp(population)
         drawnow;
-        pause(2);
+        %pause(2);
     end
     prevItAvg = itAvg;
     itAvg = mean(totIt) ;

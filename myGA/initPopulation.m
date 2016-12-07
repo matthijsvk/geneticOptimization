@@ -1,6 +1,8 @@
 function population=initPopulation(N,V,M)
-% just random
+
+% simple random distribution
 % population = random('uniform',0,1,N,V);
+
 % sobol random: better spread over parameter space => faster convergence
 p = sobolset(V);
 p = scramble(p,'MatousekAffineOwen');

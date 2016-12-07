@@ -42,7 +42,7 @@ switch nb
 % 		%% Objective function one
 % 		f(2) = g_x*(1 - ((f(1))/(g_x))^2);
         
-        % online I found this implementation (vectorized)
+        % A vectorized version of the benchmark
         f=[];
         x1 = x(:,1);
         f1 = 1.0 - (exp(-4.0 .* x1) .* (sin(6.0 .* pi .* x1) .^6.0));
@@ -68,24 +68,19 @@ switch nb
         NP = round(N .* NPMult);
         NC = round(N .* NCMult);
         
-%         disp('the population to be tested: ')
-%         disp(num2str([P,sd_mut,N,NP,NC,intervalScalar]))
-%         fprintf('P: %5.2f | sd_mut: %5.2f | N: %5.2f | NP: %5.2f | NC: %5.2f | interval: %5.2f \n', P,sd_mut,N,NP,NC,intervalScalar);
-        
         s = size(x,1);
         lb= zeros(s,6);
         ub= ones(s,6); 
         V = 6;
         M = 2;
         
-        f= zeros(s,2);
         f1 = zeros(s,1);f2 = zeros(s,1);
         % Parallelize the for loop
         parfor i = 1 : s
-            nbTests = 1;
+            nbTests = 1; % just 1 for faster convergence
             % benchmark value should be runtime till convergence. Run on ZDT6
-%             disp('Testing the following configuration: ')
-%             disp([ P(i,:), sd_mut(i,:), N(i,:), NP(i,:), NC(i,:), intervalScalar(i,:)]);
+            disp('Testing the following configuration: ')
+            disp([ P(i,:), sd_mut(i,:), N(i,:), NP(i,:), NC(i,:), intervalScalar(i,:)]);
             totIt = zeros(nbTests,1);
             totRunTime = zeros(nbTests,1);
             for j=1:nbTests
