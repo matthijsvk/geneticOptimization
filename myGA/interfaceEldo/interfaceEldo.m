@@ -9,20 +9,10 @@ function obj = interfaceEldo(filename,x)
     
     %% get P, area
     v =1.8;
-    i = dataDC
+    i = dataDC; disp(length(i));
     Pvector = abs(v*i);
+    disp([nbCircuits, length(Pvector)]);
 %     fprintf('Power:   %d ',Pvector)
-%     
-%     % Example for Transient simulations
-%     injectValues(filename,x,'tran');
-%     unix(['eldo interfaceEldo/' filename '/tran > /dev/null']);
-%     dataTran=extractTran(filename);
-%     
-%     for j=1:10
-%         plot(dataTran{j}.time,dataTran{j}.X);
-%         drawnow;
-%         pause;
-%     end
     
     % Example for AC simulations
     injectValues(filename,x,'ac');
@@ -83,13 +73,6 @@ function obj = interfaceEldo(filename,x)
         obj(j,2)=-GBW; %minus because we want to maximize GBW (and the GA tries to minimize everything)
         disp([BW, Gain, GBW])
         
-    end
-    
-    % Compute objectives
-%     obj(:,1)=-GBWresults; %minus because we want to maximize GBW (and the GA tries to minimize everything)
-%     obj(:,2)=Pvector;
-%     obj(:,1)=-Gain;
-
-    
+    end   
 end
 

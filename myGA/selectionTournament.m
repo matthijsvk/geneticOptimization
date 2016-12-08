@@ -4,10 +4,10 @@ function selection=selectionTournament(population,NP,V,M, crowdingDistanceFlag)
     popSize = popSize(1);
     
     selection = zeros(NP,V+M+2);
-%     if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
-%         selection = population(3:min(popSize,NP)-2,:);
-%         return;
-%     end
+    if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
+        selection = population(3:min(popSize,NP)-2,:);
+        return;
+    end
     for i=1:NP
         competitorsRows = randi([1,popSize],2,1);
         first = population(competitorsRows(1),:);

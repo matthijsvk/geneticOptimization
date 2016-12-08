@@ -30,7 +30,7 @@ function children=geneticOperators(parents,NC,P,intervalScalar,sd_mut,sd_mut_rec
 %                 splitLocation = randi([1,V]);
 %                 child = [firstParent(1,1:splitLocation-1), secondParent(1,splitLocation:V)];
 
-                %% SBX take some genes from one parent, some from second parent. Do mutation on all genes afterward.
+                %% RCU takes some genes from one parent, some from second parent. Do mutation on all genes afterward.
                 a=randi([0 1],1,V); % set some random elements to 1
                 b = 1-a;            % if one row has a 1, other one has 0 (you can't get from both parents at the same time
                 parentMask = [a;b];  % 1 to select, 0 to not select
