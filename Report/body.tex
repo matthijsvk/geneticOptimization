@@ -116,16 +116,16 @@ The second change showed more obvious improvements, and we used that for our fin
 \end{table}
 
 
-
 \subsection{GeneticOperators} \label{geneticOperators}
 
-Genetic operations are used to create children from parents. There are two ways to create children: recombination and mutation. The recombination and mutation cannot happen at the same time. The probability of recombination (P) comes as an input and probability of mutation thus becomes (1-P).
+Genetic operations are used to create children from parents. There are two ways to create children: recombination and mutation. The recombination and mutation cannot happen at the same time. The probability of recombination (P) is an input and probability of mutation is (1-P).
 
 \subsubsection{Recombination}
 
 Recombination process should pass the properties of two randomly selected parents to the child. There are several approaches to do it. The most basic one is called "single-point crossover". Within this method, a split point is randomly chosen and the properties of the child until the split point are coming from the first parent while the remaining properties are coming from the second parent. This is easy to implement, but provides very little flexibility for the GA to find optimal combinations of properties. %a better explanation for the disadvantage of single-point crossover is needed
 
-A better approach is to choose a random parent (out of the two) for each property. This is called "uniform crossover". A mixing ratio between parents is generated randomly between 1 and M. This ratio defines the number of properties that the first parent can pass to the child. The others will be selected from the second parent. Which properties are then chosen is determined randomly. After gene selection, a mutation is added (with standard deviation sd_mut_rec).
+A better approach is to choose a random parent (out of the two) for each property. This is called "uniform crossover". A mixing ratio between parents is generated randomly between 1 and M. This ratio defines the number of properties that the first parent can pass to the child. The others will be selected from the second parent. Which properties are then chosen is determined randomly. After gene selection, a Gaussian mutation is added for some random genes (the number of mutations is also random), with standard deviation sd_mut_rec.
+
 %\begin{figure}[h!]%
 %	\centering
 %	\centering
@@ -134,7 +134,6 @@ A better approach is to choose a random parent (out of the two) for each propert
 %	\label{fig:recMutationn}
 %\end{figure}
 
-%following paragraphs till mutation may be deleted or shortened
 A different method uses interpolation. For each property, the values of the first and second parents define the initial interval boundaries. The interval is then scaled by some factor to allow for faster searching of the parameter space. 
 % formula, graph of the interval, maybe an example matrix
 %\begin{figure}[h!]
@@ -148,18 +147,16 @@ This approach blurs the boundaries between recombination and mutation as recombi
 
 \subsubsection{Mutation}
 
-In mutation, the child is generated only from one parent. The probability to be selected for each parent is 1/2. Mutation is defined as a Gaussian function centered to the parent. The standard deviation of the Gaussian function is taken as an input to the function.\\
-
-Sometimes, it is possible to have properties outside 0-1 interval hence cutting those values are needed.
+In mutation, the child is generated only from one parent. The probability to be selected for each parent is 1/2. Mutation is defined as a Gaussian function centered to the parent. The standard deviation of the Gaussian is a hyperparameter \cref{hyperparameters}.\\
 
 \subsection{cropPopulation} \label{cropPopulation}
 
-After the children are added to the population, cropping is necessary to keep the population size same. Since the population is already sorted based on rank and crowding distance, cropping is done by selecting first N values and removing the rest from the matrix. 
+After the children are added to the population, cropping is necessary to keep the population size same. Since the population is already sorted based on rank and crowding distance, cropping is done by selecting first N values and removing the rest. 
 
 \subsection{stopCriterion} \label{stopCriterion}
 
-The algorithm needs to be stopped when all of the individuals are good enough. After all individuals are rank 1, the Pareto-optimal curve does not converge any further. It will rather start to spread the points on the curve so that each will have a high crowding distance. \\
-One way to determine when the Pareto curve is reached is to look when all individuals have rank 1. This means no point is being dominated. In practice, this works very well. Theoretically it's possible that this happens when the population has not yet reached the Pareto curve, but this is extremely unlikely.
+The algorithm needs to be stopped when all of the individuals are good enough. After a certain point, all individuals have reached the Pareto-optimal curve. The goal is now to spread the points on the curve so that each has a large crowding distance. \\
+One way to determine when the Pareto curve is reached is to look when all individuals have rank 1. This means no point is being dominated. Theoretically it's possible that this happens when the population has not yet reached the Pareto curve, but this is extremely unlikely and works well in practice. 
 To determine the spreading we use the coefficient of variation of the crowding distance vector \cite{CV}. This is the standard deviation divided by the mean. Empirically, a value of 0.15 was found to give good spreading while maintaining convergence speed. However, the standard deviation doesn't consider extremities, so we add a check that the highest and lowest crowding distances have to be close to the median value. This means all points will have similar spreading.
 
 \section{Determining hyperparameters} \label{hyperparameters}
@@ -172,29 +169,45 @@ The algorithm requires lots of hyperparameters: P, sd_mut, N, NP, NC. There are 
 A set of parameters is evaluated by running the ZDT6 algorithm until convergence, or until 500 iterations have passed. To increase simulation speed, different sets are evaluated in parallel, and objective function and function evaluations are vectorized.
 
 \subsection{Manual search}
-For the recombination using interpolation, this resulted in:\\
-N = 24;         % Population size
-NP = 12;       % Size of the mating pool
-NC = 24;       % Number of children generated by generation
-P = 0.8;	% Recomination probability
-sd_mut = 0.1; %standard deviation for mutation
-These values result in the following convergence speed (calculated by running simulations until the average didn't change anymore):
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c| }
-\hline
-& Number of Iterations	& Runtime \\
-\hline
-average    &      47.3   &   0.40 \\
-median      &     43      &      0.34    \\
-maximum		&	 158      &     1.9  \\
-std dev  &   25.2   &   0.34   \\
-\hline
-\end{tabular}
-\caption{convergence for manual hyperparameters}
-\label{manualConvergence}
+The following tables list results for both recombination using interpolation and using Simulated Binary Crossover
+
+\begin{table}[!htb]
+	\caption{Convergence of the GAs}
+	\begin{minipage}{.5\linewidth}
+		\caption{Parameters}
+		\centering
+		\begin{tabular}{ | l | l | l | }
+			\hline
+			& Interpolation 	 & SBX \\
+			\hline
+			P			& 0.5	 &  0.63  \\
+			sd_mut 		& 0.1	 & 0.1	\\
+			sd_mut_SBX	& 0.01	 &  /  \\
+			N        	& 24 	 & 24	\\
+			NP 			& 12	 &  0.47\\
+			NC 			& 24	 & 3.97 \\
+			intervalScalar & /	 &  1.4 \\  
+			\hline
+		\end{tabular}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\caption{Convergence speed}
+		\begin{tabular}{ |l||l|l|| l | l |}
+				\hline
+							& Interpol &      & SBX  &\\
+				\hline
+							& \# It & Time 	& \# It & Time	\\
+				\hline
+				Avg			& 52.75	 	&  0.42  	& 82.83		 & 1.16		\\
+				Median		& 37		&  0.24		& 72		& 0.99		\\
+				Maximum		& 284	 	&  2.87		& 153		& 3.66		\\
+				Std Dev		& 45.4	 	&  0.49 	& 29.3		& 0.75		\\
+				\hline
+		\end{tabular}
+	\end{minipage} 
 \end{table}
-These values were used for the GA that ran genetic optimization of the parameters.
+
 
 \subsection{Parameter Sweep}
 A sweep was run over P, sd_mut, N, NP, NC. Since the parameter space is very large and each evaluation costs a lot of computation power (we test for convergence speed), the first sweep is very crude.
