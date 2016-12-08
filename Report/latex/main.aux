@@ -19,14 +19,13 @@
 \catcode 95\active
 \providecommand\@newglossary[4]{}
 \@newglossary{main}{glg}{gls}{glo}
+\citation{sobol1976uniformly}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Motivation and Objectives}{1}{section.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}The Algorithm}{1}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}InitializePopulation}{1}{subsection.2.1}}
 \newlabel{initPopulation}{{2.1}{1}{InitializePopulation}{subsection.2.1}{}}
 \newlabel{initPopulation@cref}{{[subsection][1][2]2.1}{1}}
 \citation{NSGAII}
-\bibstyle{IEEEtran}
-\bibdata{bibliography}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}evaluatePopulation}{2}{subsection.2.2}}
 \newlabel{evaluatePopulation}{{2.2}{2}{evaluatePopulation}{subsection.2.2}{}}
 \newlabel{evaluatePopulation@cref}{{[subsection][2][2]2.2}{2}}
@@ -35,21 +34,50 @@
 \newlabel{sortPopulation@cref}{{[subsection][3][2]2.3}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Ranking}{2}{subsubsection.2.3.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Crowding Distance}{2}{subsubsection.2.3.2}}
-\bibcite{NSGAII}{1}
+\newlabel{crowdingDistance}{{2.3.2}{2}{Crowding Distance}{subsubsection.2.3.2}{}}
+\newlabel{crowdingDistance@cref}{{[subsubsection][2][2,3]2.3.2}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces convergence without crowding distance\relax }}{3}{figure.caption.2}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:noCrowding}{{1}{3}{convergence without crowding distance\relax }{figure.caption.2}{}}
+\newlabel{fig:noCrowding@cref}{{[figure][1][]1}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}selectionTournament}{3}{subsection.2.4}}
 \newlabel{selectionTournament}{{2.4}{3}{selectionTournament}{subsection.2.4}{}}
 \newlabel{selectionTournament@cref}{{[subsection][4][2]2.4}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}geneticOperators}{3}{subsection.2.5}}
-\newlabel{geneticOperators}{{2.5}{3}{geneticOperators}{subsection.2.5}{}}
-\newlabel{geneticOperators@cref}{{[subsection][5][2]2.5}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}cropPopulation}{3}{subsection.2.6}}
-\newlabel{cropPopulation}{{2.6}{3}{cropPopulation}{subsection.2.6}{}}
-\newlabel{cropPopulation@cref}{{[subsection][6][2]2.6}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}stopCriterion}{3}{subsection.2.7}}
-\newlabel{stopCriterion}{{2.7}{3}{stopCriterion}{subsection.2.7}{}}
-\newlabel{stopCriterion@cref}{{[subsection][7][2]2.7}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Future Improvements}{3}{section.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Summary of Achievements}{3}{section.4}}
-\newlabel{summary}{{4}{3}{Summary of Achievements}{section.4}{}}
-\newlabel{summary@cref}{{[section][4][]4}{3}}
-\@writefile{toc}{\contentsline {section}{Bibliography}{3}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}GeneticOperators}{4}{subsection.2.5}}
+\newlabel{geneticOperators}{{2.5}{4}{GeneticOperators}{subsection.2.5}{}}
+\newlabel{geneticOperators@cref}{{[subsection][5][2]2.5}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Recombination}{4}{subsubsection.2.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Interpolatino method for recombination\relax }}{5}{figure.caption.3}}
+\newlabel{fig:recMutationn}{{2}{5}{Interpolatino method for recombination\relax }{figure.caption.3}{}}
+\newlabel{fig:recMutationn@cref}{{[figure][2][]2}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Interpolatino method for recombination\relax }}{5}{figure.caption.4}}
+\newlabel{fig:recInterpolation}{{3}{5}{Interpolatino method for recombination\relax }{figure.caption.4}{}}
+\newlabel{fig:recInterpolation@cref}{{[figure][3][]3}{5}}
+\citation{CV}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Mutation}{6}{subsubsection.2.5.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}cropPopulation}{6}{subsection.2.6}}
+\newlabel{cropPopulation}{{2.6}{6}{cropPopulation}{subsection.2.6}{}}
+\newlabel{cropPopulation@cref}{{[subsection][6][2]2.6}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}stopCriterion}{6}{subsection.2.7}}
+\newlabel{stopCriterion}{{2.7}{6}{stopCriterion}{subsection.2.7}{}}
+\newlabel{stopCriterion@cref}{{[subsection][7][2]2.7}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Determining hyperparameters}{6}{section.3}}
+\newlabel{hyperparameters}{{3}{6}{Determining hyperparameters}{section.3}{}}
+\newlabel{hyperparameters@cref}{{[section][3][]3}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Manual search}{7}{subsection.3.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces convergence for manual hyperparameters\relax }}{7}{table.caption.5}}
+\newlabel{manualConvergence}{{1}{7}{convergence for manual hyperparameters\relax }{table.caption.5}{}}
+\newlabel{manualConvergence@cref}{{[table][1][]1}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Parameter Sweep}{7}{subsection.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Genetic Optimization}{7}{subsection.3.3}}
+\bibstyle{IEEEtran}
+\bibdata{bibliography}
+\bibcite{sobol1976uniformly}{1}
+\bibcite{NSGAII}{2}
+\bibcite{CV}{3}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Differential Pair}{8}{section.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Future Improvements}{8}{section.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Summary of Achievements}{8}{section.6}}
+\newlabel{summary}{{6}{8}{Summary of Achievements}{section.6}{}}
+\newlabel{summary@cref}{{[section][6][]6}{8}}
+\@writefile{toc}{\contentsline {section}{Bibliography}{8}{section.6}}

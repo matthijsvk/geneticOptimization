@@ -1,0 +1,27 @@
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\supervisors#1{\gdef\@supervisors{#1}}
+
+\def\maketitle{
+  \begin{titlepage}{
+    %\linespread{1.5}
+    \Large KU Leuven \\
+    %\linebreak
+    ESAT
+    \rm
+    \vskip 2in
+    \Large \bf \@title \par
+  }
+  \vskip 0.3in
+  \par
+  {\Large \@author}
+  \vskip 1in
+  %\centerline{\textbf{\large{Supervisors:}}}\par  % uncomment if you want to add supervicors
+  {\large \@supervisors} 
+ \vspace*{10ex}
+  \par
+  \@submitdate
+  \vfil
+  \thispagestyle{empty}
+  \end{titlepage}
+}
+

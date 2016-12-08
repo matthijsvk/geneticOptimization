@@ -12,7 +12,7 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 
-nbTests = 8;
+nbTests = 32;
 totIt = [];
 totRunTime = zeros(nbTests,1);
 
@@ -20,7 +20,7 @@ j = 1;
 prevItAvg = 10; itAvg = 0;
 while abs(prevItAvg - itAvg) > 1
     disp('deviation too large, run more tests...')
-    for i=j:j+nbTests
+    parfor i=j:j+nbTests
     %     disp(['now running test: ',num2str(i)])
         [it,population,runTime]= myGA(@(x) benchmark(4,x,V),V,M,lb,ub);
         totIt(i,1) =  it;
@@ -28,9 +28,9 @@ while abs(prevItAvg - itAvg) > 1
         disp([it, runTime])
 
         % draw so we can visualize the population results
-        illustratePopulation(population,V,M,lb,ub,it);
-        disp(population)
-        drawnow;
+%         illustratePopulation(population,V,M,lb,ub,it);
+%         disp(population)
+%         drawnow;
         %pause(2);
     end
     prevItAvg = itAvg;

@@ -1,0 +1,30 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{helpfunctions.preamble}  %this adds some options, parameters and also shortcuts
+\input{layout.sty}
+
+\begin{document}
+	
+\title{\LARGE {\bf Computer Aided IC Design \\ Genetic Optimization}\\
+ \vspace*{6mm}
+}
+\author{Matthijs Van keirsbilck \\ Onur Can Akboyraz }
+\supervisors{Anthony Coyette, Nektar Xama, prof. Georges Gielen}
+\submitdate{\today}
+
+\maketitle % this generates the title page. More in icthesis.sty
+\setstretch{1.2}
+
+%generates table of contents, list of figures and list of tables.
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\input{body}
+
+
+\addcontentsline{toc}{section}{Bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+
+\end{document}

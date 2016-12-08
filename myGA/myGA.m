@@ -9,7 +9,7 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 %% Some settings
 verbose = 0;
 interpolationRecomb = 1; %choose genetic operators: either using interpolation (works in 2 stages, first 
-variableParams = 0; % for interpolation, set to 1 to enable two stages
+variableParams = 1; % for interpolation, set to 1 to enable two stages
 
 if interpolationRecomb == 0
     intervalScalar = 0;
@@ -58,7 +58,7 @@ intervalScalar_start = 1.35;
 %to tweak a little
 P_end = 0.9;
 sd_mut_end = 0.05;
-N_end = 16;
+N_end = 32;
 NP_end = round(0.6*N_end);
 NC_end = round(1.8*N_end);
 intervalScalar_end = 2;

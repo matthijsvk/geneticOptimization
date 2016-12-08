@@ -4,28 +4,21 @@ function selection=selectionTournament(population,NP,V,M, crowdingDistanceFlag)
     popSize = popSize(1);
     
     selection = zeros(NP,V+M+2);
-    if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
-        selection = population(1:min(popSize,NP),:);
-        return;
-    end
+%     if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
+%         selection = population(1:min(popSize,NP),:);
+%         return;
+%     end
     for i=1:NP
-%         competitorsRows = randi([1,popSize],1,1);
-%         selected = population(competitorsRows,:);
-%         while rand() > becomeParentProbability(selected(1,:),V,M)
-%             competitorsRows = randi([1,popSize],1,1);
-%             selected = population(competitorsRows,:);
-%         end
-
         competitorsRows = randi([1,popSize],2,1);
         first = population(competitorsRows(1),:);
         second = population(competitorsRows(1),:);
         selected = selectBest(first,second,V, M);
-        while rand() > becomeParentProbability(selected(1,:),V,M)
-            competitorsRows = randi([1,popSize],2,1);
-            first = population(competitorsRows(1),:);
-            second = population(competitorsRows(1),:);
-            selected = selectBest(first,second,V, M);
-        end
+%         while rand() > becomeParentProbability(selected(1,:),V,M)
+%             competitorsRows = randi([1,popSize],2,1);
+%             first = population(competitorsRows(1),:);
+%             second = population(competitorsRows(1),:);
+%             selected = selectBest(first,second,V, M);
+%         end
         
         selection(i,:) = selected;
     end
@@ -52,7 +45,7 @@ function probTotal = becomeParentProbability(a,V,M)
     rankA = a(1,rankColumn);
     cdA = a(1,crowdingDistanceColumn);
     
-    probTotal = max(min(1.0/(rankA^4) + cdA,1.0),0); 
+    probTotal = max(min(1.0/(rankA^4)+cdA,1.0),0); 
 end
 
 

@@ -21,8 +21,19 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{sobol1976uniformly}
+I.~M. Sobol, ``Uniformly distributed sequences with an additional uniform
+  property,'' \emph{USSR Computational Mathematics and Mathematical Physics},
+  vol.~16, no.~5, pp. 236--242, 1976.
+
 \bibitem{NSGAII}
 A.~Seshadri, ``A fast elitist multiobjective genetic algorithm: Nsga-ii,''
   \emph{MATLAB Central}, vol. 182, 2006.
+
+\bibitem{CV}
+\BIBentryALTinterwordspacing
+Wikipedia, ``Coefficient of variation.'' [Online]. Available:
+  \url{https://en.wikipedia.org/wiki/Coefficient_of_variation}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
