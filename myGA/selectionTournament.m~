@@ -5,7 +5,7 @@ function selection=selectionTournament(population,NP,V,M, crowdingDistanceFlag)
     
     selection = zeros(NP,V+M+2);
 %     if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
-%         selection = population(3:min(popSize,NP)-2,:);
+%         selection = population(1:min(popSize,NP),:);
 %         return;
 %     end
     for i=1:NP
@@ -44,16 +44,10 @@ function probTotal = becomeParentProbability(a,V,M)
     crowdingDistanceColumn = rankColumn + 1;
     rankA = a(1,rankColumn);
     cdA = a(1,crowdingDistanceColumn);
-    if rankA == 1
-        probTotal = 1.0;
-    elseif rankA == 2
-        probTotal = 0.5 + cdA;
-    elseif rankA == 3
-        probTotal = 0.1 + cdA;
-    else
-        probTotal = 1.0/(rankA^4)+cdA; 
-    end
-    probTotal = max(min(probTotal,1.0),0);
+    if rankA == 1:
+        probTotal = 0.95;
+    elseif rankA == 
+    probTotal = max(min(1.0/(rankA^4)+cdA,1.0),0); 
 end
 
 

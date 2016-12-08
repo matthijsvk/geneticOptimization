@@ -7,7 +7,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Crowding Distance}{3}{subsubsection.2.3.2}
 \contentsline {subsection}{\numberline {2.4}selectionTournament}{3}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}GeneticOperators}{4}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}Recombination}{5}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1}Recombination}{4}{subsubsection.2.5.1}
 \contentsline {subsubsection}{\numberline {2.5.2}Mutation}{5}{subsubsection.2.5.2}
 \contentsline {subsection}{\numberline {2.6}cropPopulation}{5}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}stopCriterion}{6}{subsection.2.7}

@@ -78,61 +78,42 @@ This function takes number of parents (NP) as an input, select some parents from
 
 Selection of best competitor is done by comparing their rank. In case their ranks are equal, the individual with higher crowding distance is favored as its genes are more valuable.
 
-It may be mistakenly thought that selection of only the best NP individual of the population as parents is better. This is wrong, because it would converge to a local minimum instead of the global minimum. To find the global minimum, we need more randomness.
-
 We had some ideas to try to increase the speed of convergence. We tried to select better parents, especially at the start of the algorithm when there are still lots of bad candidates.
-First, make the probability of becoming a parent depend on rank. We chose the inverse of its rank to the power of four to prefer first-ranked individuals, and added a fixed bonus based on the crowding distance (prefer extreme individuals to increase search speed of parameter space).
-Second, choose the elements with highest crowding distances as parents in the second phase (when the Pareto curve is reached). This would result in faster separation.
-When we tested these changes, the first change actually degraded  convergence speed, possibly due to computational overhead. The second one did show some improvements.
+First, make the probability of becoming a parent depend on rank. We chose the inverse of its rank to the power of four to prefer first-ranked individuals, and added a fixed bonus based on the crowding distance (prefer extreme individuals to increase search speed of parameter space).\\
+Second, choose the elements with highest crowding distances as parents in the second phase (when the Pareto curve is reached). This would result in faster separation.\\
+When we tested these changes by running them 64 times, the first change hardly impacted convergence speed, possibly due to computational overhead. It did lower the maximum speed by a factor of 2.
+The second change showed more obvious improvements, and we used that for our final algorithm.
 \begin{table}[!htb]
 	\caption{Summarizing table}
 	\begin{minipage}{.5\linewidth}
-		\caption{Large signal matching with real output inductors}
+		\caption{Simple binary tournament}
 		\centering
 		\begin{tabular}{ | l | l | l | }
 			\hline
 		 	 & Iterations & Runtime \\
 		 	 \hline
-			Avg &40.68	 &  0.67  \\
+			Avg &41.27	 &  0.63  \\
 			Median &37.00 &  0.47\\
-			Max &76.00	& 2.21 \\
-			Std Dev & 12.87	&  0.48 \\
+			Max &132.00	& 3.97 \\
+			Std Dev & 15.43	&  0.49 \\
 			\hline
 		\end{tabular}
 	\end{minipage}%
 	\begin{minipage}{.5\linewidth}
 		\centering
-		\caption{Large signal matching with real output inductors}
+		\caption{First binary tournament, then select top crowding distance}
 		\begin{tabular}{ |l| l | l |}
 			\hline
 			& Iterations & Runtime \\
 			\hline
-			Avg    &      47.3   &   0.40 \\
-			Median      &     43      &      0.34    \\
-			Max		&	 158      &     1.9  \\
-			Std Dev  &   25.2   &   0.34   \\
+			Avg    &      36.64   &   0.58 \\
+			Median      &     35.00      &      0.41    \\
+			Max		&	 78.00      &     2.54  \\
+			Std Dev  &   11.47   &   0.49   \\
 			\hline
 		\end{tabular}
 	\end{minipage} 
 \end{table}
-
-
-Simple binary tournament
-
-
-First binary tournament, then select most crowding distanced
-itAvg: 36.86|	 runTimeAvg:  0.55
-itMedian: 34.00	|	 runTimeMedian:  0.49
-maxIt: 82.00	|	 maxTime:  1.30 
-stdIt: 13.52	|	 stdTime:  0.28 
-
-select with randomness, most crowding distanced, but no cd in probability
-itAvg: 39.54|	 runTimeAvg:  0.71
-itMedian: 38.00	|	 runTimeMedian:  0.61
-maxIt: 74.00	|	 maxTime:  2.07 
-stdIt: 12.96	|	 stdTime:  0.48 
-
-
 
 
 

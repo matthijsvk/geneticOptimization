@@ -35,14 +35,10 @@ function children=geneticOperators(parents,NC,P,intervalScalar,sd_mut,sd_mut_rec
                 b = 1-a;            % if one row has a 1, other one has 0 (you can't get from both parents at the same time
                 parentMask = [a;b];  % 1 to select, 0 to not select
                 genesMatrix = parentMask .* twoParents; % mask the parents with the binary matrix
-                child = sum(genesMatrix,1);            % merge the two rows. Only one el per col is not 0, so just add rows
-                % don't mutate all of them, only some
-                nbMutated = randi([1 V],1,1);
-                for i=1:nbMutated
-                    mutated = randi([1 nbMutated],1,1);
-                    mutation = sd_mut_rec*randn(1,1);
-                    child(1,mutated) = child(1,mutated) + mutation;     % do some mutation
-                end
+                genes = sum(genesMatrix,1);             % merge the two rows. Only one el per col is not 0, so just add rows
+                nbMutated = randi([1 V],1,1)
+                for i=1:V
+                    child(mutatedGenes(i)) = genes(i) + sd_mut_rec*randn(1,1);     % do some mutation
              end
             
         else % mutation from parent 1 or parent 2
