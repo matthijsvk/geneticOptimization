@@ -1,4 +1,4 @@
-function [it,population,runTime]=myGA(f,V,M,lb,ub)
+function [it,runTime]=myGA_sweep(f,V,M,lb,ub, P_start, sd_mut_start, sd_mut_rec_start, N_start, NP_start, NC_start)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
@@ -8,19 +8,19 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 
 %% Some settings
 verbose = 0;
-interpolationRecomb = 1; %choose genetic operators: either using interpolation (works in 2 stages, first 
-variableParams = 1; % for interpolation, set to 1 to enable two stages
+interpolationRecomb = 0; %choose genetic operators: either using interpolation (works in 2 stages, first 
+variableParams = 0; % for interpolation, set to 1 to enable two stages
 
-if interpolationRecomb == 0
+if interpolationRecomb == 0  % SBX -> fastest with variable params!
      % % If using SBX for genetics, set interval to 0 so the genetic
      % operator function knows.
     intervalScalar_start = 0; intervalScalar_end = 0;
-    P_start = 0.5 ; 
-    sd_mut_start=0.1; 
-    sd_mut_rec_start= 0.01; 
-    N_start=24;
-    NP_start=12; 
-    NC_start=24;
+%     P_start = 0.5 ; 
+%     sd_mut_start=0.1; 
+%     sd_mut_rec_start= 0.01; 
+%     N_start=24;
+%     NP_start=12; 
+%     NC_start=24;
     
     P_end = 0.2;
     sd_mut_end=0.1; 
@@ -29,7 +29,7 @@ if interpolationRecomb == 0
     NP_end=10; 
     NC_end=24;
 else
-    % using Interpolation for genetics -> fastest with f
+    % using Interpolation for genetics      ->   fastest with fixed parameters
     sd_mut_rec_start = 0; sd_mut_rec_end = 0;
     P_start = 1;	% Recomination probability
     sd_mut_start = 0.1; %standard deviation for mutation

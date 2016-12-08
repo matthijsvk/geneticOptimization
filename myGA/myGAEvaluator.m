@@ -1,4 +1,4 @@
-function [it,runTime]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut,sd_mut_rec, N, NP, NC)
+function [it,runTime]=myGAEvaluator(f,V,M,lb,ub,P, sd_mut, N, NP, NC, intervalScalar)
 % myGA(f,V,M,lb,ub)
 % f : function to minimize
 % V : Dimension of the search space.
@@ -31,9 +31,9 @@ crowdingDistanceFlag = 0;
 populationOffspring = zeros(N+NC,V);
 while stopFlag==0
     
-    parents=selectionTournament(population,NP,V,M,crowdingDistanceFlag);
-    % use interval = 0
-    offspring=geneticOperators(parents,NC,P,0,sd_mut,sd_mut_rec,V,M,f,lb,ub);
+    parents=selectionTournament(population,NP,V,M);
+    
+    offspring=geneticOperators(parents,NC,P,intervalScalar,sd_mut,V,M,f,lb,ub);
     populationOffspring = [ population ; offspring ];
     
     [~,uniqueIndividuals,~] = unique(populationOffspring(:,1:V),'rows','stable');
@@ -46,25 +46,16 @@ while stopFlag==0
         population = sortPopulationCrowding(populationOffspring,V,M,N);
     end
     
-    [stopFlag, crowdingDistanceFlag] = stopCriterion(it, population(:,V+M+1),population, V+M+2, M);
+    [stopFlag, crowdingDistanceFlag] = stopCriterion(it, population(:,V+M+1),population, V+M+2, N, M);
     it=it+1;
     runTime = cputime - startTime;
-    if (runTime > 50)
+    if (runTime > 10)
         stopFlag = 1;
-    end
-    % don't end yet is stopFlag (low std dev, and all rank 1), but not in
-    % cnovergence region  yet
-    if (stopFlag == 1 && it<499)
-        if (mean(population(:,V+1)) > 1) || (mean(population(:,V+2)) > 1) % V+1 : x1 (horizontal), V+2 = x2 (vertical)
-            stopFlag = 0;
-        end
     end
 end
 
 runTime = cputime - startTime;
-
-% compensate for N
-runTime = runTime/N; % lower N is always faster because less calculations.
+runTimeCompensatedForN = runTime/N; % lower N is always faster because less calculations.
                                     % we want to optimize for convergence
                                     % speed, independent of population
                                     % size, so compensate for this
@@ -73,29 +64,12 @@ runTime = runTime/N; % lower N is always faster because less calculations.
 % We have to fix this (that noone in the population converges) by adding some good (manually determined) individuals in the startPopulation. 
 % They will reproduce becauce they finish before 500 iterations.
 if it>499  
-    it = it + rand(1,1);
-    if crowdingDistanceFlag == 1 %give points for all rank 1
-        runTime = 5 + 0.1*rand(1,1);
-    else
-        runTime = 100 + rand(1,1);
-    end
+    runTime = 1000;
 end
 
-% it hasn't converged, give penalty
-mean1 = mean(population(:,V+1));
-mean2 = mean(population(:,V+2));
-
-if ( mean1> 1) && (mean2 > 1) % V+1 : x1 (horizontal), V+2 = x2 (vertical)
-    runTime = runTime + (mean1(1,1) - 1)*50 ;
-elseif mean2(1,1) > 1
-    runTime = runTime + (mean2(1,1) - 1)*50;
-elseif mean1(1,1) > 1
-    runTime = runTime + (mean1(1,1) - 1)*100;
+% it hasn't converged at all
+if ( max(population(V+1)) > 1) || (max(population(V+2)) > 1) % V+1 : x1 (horizontal), V+2 = x2 (vertical)
+    runTime = 1000;
 end
-
-% disp([mean1, mean2, runTime])
-% pop = [unnormalizePopulation(population(:,1:V),lb,ub) , population(:,V+1:end)]
-% illustratePopulation(population,V,M,lb,ub,it);
-% pause(1)
 
 end
