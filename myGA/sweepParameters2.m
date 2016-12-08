@@ -8,13 +8,13 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 %P=0.44 | sd_mut:  0.26 | N: 10.00 | NP:  9.00 | NC:  8.00 | interval:  1.35 
-nbRunsAvg = 8; %take average nb of iterations of this amount of runs.
+nbRunsAvg = 24; %take average nb of iterations of this amount of runs.
 PValues = 0.5;%[0.2:0.2:0.95]
-sdMutValues = 0.1; %[0.01:0.2:1]
+sdMutValues = [0.01:0.01:0.2]
 sdMutRec = 0.001;
 NValues = 24; %:16:64];  
 NPMult = 0.5; %[0.2:0.2:1]
-NCMult = [0.2:0.05:4] %24; %[0.2:0.1:4]
+NCMult = 1;%[0.2:0.05:4] %24; %[0.2:0.1:4]
 intervalValues = 1.35; %[1.1:0.1:1.5];
 
 fprintf('Number of tests for each variable: \n \tP: %d, sdMut: %d, N: %d, NP: %d, NC: %d, interval: %d, avgNb: %d \n', ...

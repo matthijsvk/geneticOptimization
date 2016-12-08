@@ -10,16 +10,18 @@
 
 pIndex = 1;
 mutIndex = 2;
+nIndex = 3;
 npIndex = 4;
 ncIndex = 5;
-timeIndex = 8;
 itIndex = 7;
+timeIndex = 8;
 
-% P = 0.2;
-% mut = 0.01;
-% NP = 6;
-% NC = 6;
-% 
+
+P = 0.5;
+mut = 0.01;
+NP = 12;
+NC = 24;
+
 % % NC sweep
 % mMut = results( results(:, mutIndex) == mut, :);
 % mMut_NP = mMut( mMut(:, npIndex) == NP, :);
@@ -44,14 +46,21 @@ itIndex = 7;
 % 
 % 
 % % mutation sweep
-% mP = results( results(:, pIndex) == P, :);
-% mP_NP = mP( mP(:, npIndex) == NP, :);
-% mP_NP_NC = mP_NP( mP_NP(:, ncIndex) == NC, :);
-% mut_axis = mP_NP_NC(:, mutIndex);
-% mut_time = mP_NP_NC(:, timeIndex);
-% figure;
-% plot(mut_axis,mut_time);
-% title('mutation');
+mP = results( results(:, pIndex) == P, :);
+mP_NP = mP( mP(:, npIndex) == NP, :);
+mP_NP_NC = mP_NP( mP_NP(:, ncIndex) == NC, :);
+% mut vs time
+mut_axis = mP_NP_NC(:, mutIndex);
+mut_time = mP_NP_NC(:, timeIndex);
+figure;
+plot(mut_axis,mut_time);
+title('mutation');
+% mut vs iterations
+mut_axis = mP_NP_NC(:, mutIndex);
+mut_it = mP_NP_NC(:, itIndex);
+figure;
+plot(mut_axis,mut_it);
+title('mutation');
 % 
 % 
 % % P sweep

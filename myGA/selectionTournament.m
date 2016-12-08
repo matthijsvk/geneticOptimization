@@ -4,10 +4,10 @@ function selection=selectionTournament(population,NP,V,M, crowdingDistanceFlag)
     popSize = popSize(1);
     
     selection = zeros(NP,V+M+2);
-    if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
-        selection = population(3:min(popSize,NP)-2,:);
-        return;
-    end
+%     if crowdingDistanceFlag == 1 %we converged, now select top crowding distancers
+%         selection = population(1:min(popSize,NP),:);
+%         return;
+%     end
     for i=1:NP
         competitorsRows = randi([1,popSize],2,1);
         first = population(competitorsRows(1),:);
@@ -22,17 +22,6 @@ function selection=selectionTournament(population,NP,V,M, crowdingDistanceFlag)
         
         selection(i,:) = selected;
     end
-
-    %% Select best NP_best and add some random others to prevent local
-%     NP_best = round(NP * 0.8);
-%     NP_random = NP - NP_best;
-%     selection = population(1:NP_best,:);
-%     
-%     population_without_best = population(NP_best+1:end,:);
-%     c = randperm(length(population_without_best),NP_random); 
-%     random_selected = population_without_best(c,:);  % output matrix
-%     
-%     selection(i,:) = selected;
 end
 
 function probTotal = becomeParentProbability(a,V,M)

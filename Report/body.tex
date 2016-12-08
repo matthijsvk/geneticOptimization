@@ -125,6 +125,7 @@ Genetic operations are used to create children from parents. There are two ways 
 Recombination process should pass the properties of two randomly selected parents to the child. There are several approaches to do it. The most basic one is called "single-point crossover". Within this method, a split point is randomly chosen and the properties of the child until the split point are coming from the first parent while the remaining properties are coming from the second parent. This is easy to implement, but provides very little flexibility for the GA to find optimal combinations of properties. %a better explanation for the disadvantage of single-point crossover is needed
 
 A better approach is to choose a random parent (out of the two) for each property. This is called "uniform crossover". A mixing ratio between parents is generated randomly between 1 and M. This ratio defines the number of properties that the first parent can pass to the child. The others will be selected from the second parent. Which properties are then chosen is determined randomly. After gene selection, a Gaussian mutation is added for some random genes (the number of mutations is also random), with standard deviation sd_mut_rec.
+We call this "random uniform crossover (RUC)".
 
 %\begin{figure}[h!]%
 %	\centering
@@ -169,7 +170,7 @@ The algorithm requires lots of hyperparameters: P, sd_mut, N, NP, NC. There are 
 A set of parameters is evaluated by running the ZDT6 algorithm until convergence, or until 500 iterations have passed. To increase simulation speed, different sets are evaluated in parallel, and objective function and function evaluations are vectorized.
 
 \subsection{Manual search}
-The following tables list results for both recombination using interpolation and using Simulated Binary Crossover
+The following tables list results for both recombination using interpolation and using random uniform crossover (RUC).
 
 \begin{table}[!htb]
 	\caption{Convergence of the GAs}
@@ -178,7 +179,7 @@ The following tables list results for both recombination using interpolation and
 		\centering
 		\begin{tabular}{ | l | l | l | }
 			\hline
-			& Interpolation 	 & SBX \\
+			& Interpolation 	 & UC \\
 			\hline
 			P			& 0.5	 &  0.63  \\
 			sd_mut 		& 0.1	 & 0.1	\\
@@ -195,7 +196,7 @@ The following tables list results for both recombination using interpolation and
 		\caption{Convergence speed}
 		\begin{tabular}{ |l||l|l|| l | l |}
 				\hline
-							& Interpol &      & SBX  &\\
+							& Interpol &      & RUC  &\\
 				\hline
 							& \# It & Time 	& \# It & Time	\\
 				\hline
@@ -221,9 +222,9 @@ To increase speed, vectorization and parallel execution (eg MATLAB's parfor) are
 
 \section{Differential Pair} 
 
-The genetic optimization was implemented to both single and double ended differential amplifiers. Initially power and gain bandwidth product are used as two dimensional objective space. Later, three dimensional objective space is also tried with the addition of area as the third objective. In all implementations, a good convergence curve is observed in which trade off between different design parameters are clearly visible. 
+The genetic optimization was used for optimizing both single and double-ended differential amplifiers. Initially power and gain bandwidth product are used as two objectives. Later, a three dimensional objective space is also tried with the addition of area as the third objective. In all implementations, a good convergence curve is observed in which trade off between different design parameters are clearly visible. 
 
-The circuit is simulated in Eldo. An interface function enabled the extraction of simulation results to Matlab. Output voltage is extracted from AC simulation. Magnitude and phase for each frequency for the output voltage is calculated. The gain is found as the magnitude of first index of the output voltage. The bandwidth is found as detecting -3dB crossing point (in other words, 70percent of the initial gain). If bandwidth cannot be detected, the BW is made equal to 1Hz. Furthermore, current drawn from the power supply is extracted from the DC simulation. The multiplication of this value and bias voltage are used to find power consumption.
+The circuit is simulated in Eldo. An interface function enabled the extraction of simulation results to Matlab. Output voltage is extracted from AC simulation. Magnitude and phase for each frequency for the output voltage is calculated. The gain is found as the magnitude of first index of the output voltage. The bandwidth is found as detecting -3dB crossing point (in other words, 70percent of the initial gain). If bandwidth cannot be detected, the circuit doesn't have any proper behavior, so the BW is set to 1Hz. Furthermore, current drawn from the power supply is extracted from the DC simulation. The multiplication of this value and bias voltage are used to find power consumption.
 
 
 \section{Future Improvements}

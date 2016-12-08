@@ -1,7 +1,0 @@
-START report: Fri Dec  2 10:55:59 2016 
-** Warning: (eldo-220)  In file "./interfaceEldo/circuit2/tran" line 13:
-+    OBJECT "V1": Default values used for time specification : parameter TFALL set to  1ns.
-** Warning: (eldo-220)  In file "./interfaceEldo/circuit2/tran" line 13:
-+    OBJECT "V1": Default values used for time specification : parameter TSAMPLE set to  1000ns.
-** Warning: (eldo-220)  In file "./interfaceEldo/circuit2/tran" line 13:
-+    OBJECT "V1": Default values used for time specification.
