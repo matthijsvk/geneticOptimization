@@ -40,29 +40,29 @@ switch nb
 
     case 4 %ZDT6
 		% http://people.ee.ethz.ch/~sop/download/supplementary/testproblems/zdt6/
-% 		f = [];
-% 		%% Objective function one
-% 		f(:,1) = 1 - exp(-4*x(1))*(sin(6*pi*x(1)))^6;
-% 		sum1 = 0;
-% 		for i = 2 : 6
-% 		    sum1 = sum1 + x(i)/4;
-% 		end
-% 		%% Intermediate function
-% 		g_x = 1 + 9*(sum1)^(0.25);
-% 		%% Objective function one
-% 		f(2) = g_x*(1 - ((f(1))/(g_x))^2);
+		f = [];
+		%% Objective function one
+		f(:,1) = 1 - exp(-4*x(1))*(sin(6*pi*x(1)))^6;
+		sum1 = 0;
+		for i = 2 : 6
+		    sum1 = sum1 + x(i)/4;
+		end
+		%% Intermediate function
+		g_x = 1 + 9*(sum1)^(0.25);
+		%% Objective function one
+		f(2) = g_x*(1 - ((f(1))/(g_x))^2);
         
         % in vectorized form
-        f=[];
-        x1 = x(:,1);
-        f1 = 1.0 - (exp(-4.0 .* x1) .* (sin(6.0 .* pi .* x1) .^6.0));
-        gvals = x(:,2:end);
-        g = sum(gvals,2);
-        g = g./ 9.0; g = g.^ 0.25; g = 1.0 + (9.0 .* g);
-        h = ones(length(g),1) - ((f1./g) .^ 2.0);
-        f2 = g.*h;
-        f(:,1) = f1;
-        f(:,2) = f2;
+%         f=[];
+%         x1 = x(:,1);
+%         f1 = 1.0 - (exp(-4.0 .* x1) .* (sin(6.0 .* pi .* x1) .^6.0));
+%         gvals = x(:,2:end);
+%         g = sum(gvals,2);
+%         g = g./ 9.0; g = g.^ 0.25; g = 1.0 + (9.0 .* g);
+%         h = ones(length(g),1) - ((f1./g) .^ 2.0);
+%         f2 = g.*h;
+%         f(:,1) = f1;
+%         f(:,2) = f2;
         
         
     case 5 % optimize the algorithm itself

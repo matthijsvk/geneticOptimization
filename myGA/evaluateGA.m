@@ -10,7 +10,7 @@ ub= ones(1,6);
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
 
-nbTests = 32; %batch size
+nbTests = 16; %batch size
 totIt = [];
 totRunTime = zeros(nbTests,1);
 j = 1;

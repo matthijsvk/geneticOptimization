@@ -9,12 +9,12 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 %% Settings
 verbose = 0;
 
-%choose genetic operators: 
-%either using interpolation or random uniform crossover
-interpolationRecomb = 0; 
+%choose recombination: 
+% either using interpolation (1) or random uniform crossover (0)
+interpolationRecomb = 1; 
 % choose whether to swith to different parameters after reaching the Pareto
 % curve
-variableParams = 0; % set to 1 to enable two stages
+variableParams = 0;
 
 if interpolationRecomb == 0  % RUB
      % % If using RUB, set interval to 0 so geneticOperators knows.
@@ -37,7 +37,8 @@ if interpolationRecomb == 0  % RUB
     NP_start=round(0.88*N_start); 
     NC_start=round(1.78*N_start);
     % this should give evaluateGA.m results of about
-%     average"          "33.5258"    "0.57423"
+%                           # IT      runTime
+%     average"          "33.5258"    "0.6"
 %     "median"           "31"         "0.5"    
 %     "maximum"          "83"         "1.68"   
 %     "std deviation"    "9.92166"    "0.25529"
