@@ -1,4 +1,4 @@
-START report: Tue Dec  6 08:30:13 2016 
+START report: Fri Dec  9 10:45:54 2016 
 ** Warning: (eldo-240)  OBJECT "M1":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
 ** Warning: (eldo-240)  OBJECT "M2":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.
 ** Warning: (eldo-240)  OBJECT "M3":  Rds at current temperature = 0.000123338 is less than 0.001 ohm. Should be set to zero, set PARAMCHK=1 to enable clipping.

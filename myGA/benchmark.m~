@@ -90,9 +90,8 @@ switch nb
             nbTests = 1; % just 1 for faster convergence 
             % benchmark returns runtime ant #iterations till convergence. Run on ZDT6
             disp('Testing the following configuration: ')
-            fprintf('   P  \t sd_mut\t sd_rec\t N \t NP \t NC \n');
-            disp([ P(i,:), sd_mut(i,:), sd_mut_rec(i,:),N(i,:), NP(i,:), NC(i,:)]);
-            totIt = zeros(nbTests,1);
+            
+            disp([ 'P', 'sd_mut', 'sd_mut_rec',P(i), sd_mut(i), sd_mut_rec(i),N(i), NP(i), NC(i)]);            totIt = zeros(nbTests,1);
             totRunTime = zeros(nbTests,1);
             for j=1:nbTests
                 [it,runTime]= myGA_sweep(@(y) benchmark(4,y,V),V,M,lb(i,:),ub(i,:),P(i,:), sd_mut(i,:),sd_mut_rec(i,:), N(i,:), NP(i,:), NC(i,:));

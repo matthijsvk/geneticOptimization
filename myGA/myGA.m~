@@ -7,11 +7,11 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 % ub = upper bound vector.
 
 %% Settings
-verbose = 0;
+verbose = 1;
 
 %choose genetic operators: 
 %either using interpolation or random uniform crossover
-interpolationRecomb = 0; 
+interpolationRecomb = ; 
 % choose whether to swith to different parameters after reaching the Pareto
 % curve
 variableParams = 0; % set to 1 to enable two stages
@@ -31,7 +31,7 @@ if interpolationRecomb == 0  % RUB
 % optimized values after genetic optimization: P  sd_mut sd_rec N NC/N NP/N
 % From myOptimizeGA.m after 11 iterations:    0.81 1.47 0.0255 24 0.88 1.78
     P_start = 0.81 ; 
-    sd_mut_start=1.47; 
+    sd_mut_start=0.2; 
     sd_mut_rec_start= 0.0255; 
     N_start=24;
     NP_start=round(0.88*N_start); 
@@ -46,7 +46,7 @@ if interpolationRecomb == 0  % RUB
 % set to 1
     P_end = 0.8;
     sd_mut_end=0.1; 
-    sd_mut_rec_end= 0.02; 
+    sd_mut_rec_end= 0.0255; 
     N_end=32;
     NP_end=8; 
     NC_end=10;
@@ -87,8 +87,10 @@ stopFlag = 0;
 convergedFlag = 0;
 
 while stopFlag==0
-    % for interpolation recombination, you can specify values for the 2
-    % stages (convergence to Pareto curve, then spreading and more points)
+    % you can specify parameters for the 2 stages 
+    %(convergence to Pareto curve, then spreading and more points)
+    % first stage  -> parameter_start
+    % second stage -> parameter_end
     if variableParams == 1 && convergedFlag == 1
 %         disp('reached PARETO')
         P = P_end;
@@ -108,22 +110,16 @@ while stopFlag==0
         intervalScalar = intervalScalar_start;
     end
     
-    % use this to enable/disable variable P and sd_mut.
-    % Setting to crowdingDistanceFlag uses first variable, and when everything reached rank 1 fixed
-%     if convergedFlag == 0
-%         sd_mut = sd_mut_start/it + sd_mut_end;
-%         P = P_start/it + P_end;
-%     else
-%         P = P_end;
-%         sd_mut = sd_mut_end;
-%     end
     parents= selectionTournament(population,NP,V,M,convergedFlag);
     offspring= geneticOperators(parents,NC,P,intervalScalar,sd_mut,sd_mut_rec,V,M,f,lb,ub);
     population = [ population ; offspring ];
     
+    % remove children that are equal to parents
     [~,uniqueIndividuals,~] = unique(population(:,1:V),'rows','stable');
     population = population(uniqueIndividuals,:);
     
+    % if reached the Pareto curve, use slower but more precise individual
+    % removal based on crowding distance (1 by 1 instead of in batch).
     if convergedFlag == 0
         population = sortPopulation(population,V,M);
         population = cropPopulation(population,N);

@@ -19,11 +19,17 @@ elseif V>=2
         plot(x(:,1));
         
     elseif M == 2
-        plot(x(:,1),x(:,2),'*');
+        plot(x(:,1),-1*x(:,2),'*');
 
-        title(['Search Space V>2, Iteration ' num2str(it)]);
-        xlabel('x1');
-        ylabel('x2');
+%         title(['Search Space V>2, Iteration ' num2str(it)]);
+%         xlabel('x1');
+%         ylabel('x2');
+
+
+         title('GBW vs Power for Differential Pair with Active Load');
+         xlabel('Power (dB)');
+         ylabel('GBW (Hz)');
+
         %axis([lb(1) ub(1) lb(2) ub(2)]);
 
     elseif M== 3

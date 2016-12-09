@@ -11,7 +11,7 @@ verbose = 1;
 
 %choose genetic operators: 
 %either using interpolation or random uniform crossover
-interpolationRecomb = 0; 
+interpolationRecomb = 1; 
 % choose whether to swith to different parameters after reaching the Pareto
 % curve
 variableParams = 0; % set to 1 to enable two stages
@@ -31,7 +31,7 @@ if interpolationRecomb == 0  % RUB
 % optimized values after genetic optimization: P  sd_mut sd_rec N NC/N NP/N
 % From myOptimizeGA.m after 11 iterations:    0.81 1.47 0.0255 24 0.88 1.78
     P_start = 0.81 ; 
-    sd_mut_start=0.47; 
+    sd_mut_start=0.2; 
     sd_mut_rec_start= 0.0255; 
     N_start=24;
     NP_start=round(0.88*N_start); 
@@ -46,7 +46,7 @@ if interpolationRecomb == 0  % RUB
 % set to 1
     P_end = 0.8;
     sd_mut_end=0.1; 
-    sd_mut_rec_end= 0.02; 
+    sd_mut_rec_end= 0.0255; 
     N_end=32;
     NP_end=8; 
     NC_end=10;
@@ -128,7 +128,7 @@ while stopFlag==0
     end
     
     % Visualization
-    if verbose && mod(it,10)==0
+    if verbose %&& mod(it,10)==0
         pop = [unnormalizePopulation(population(:,1:V),lb,ub) , population(:,V+1:end)]
         illustratePopulation(population,V,M,lb,ub,it);
         drawnow;

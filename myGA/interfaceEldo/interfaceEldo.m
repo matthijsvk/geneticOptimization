@@ -69,7 +69,7 @@ function obj = interfaceEldo(filename,x)
         BWresults(j) = BW;
         
         %obj(j,1)=-Gain;
-        obj(j,1)=Pvector(j);
+        obj(j,1)=10 * log10(Pvector(j) );
         obj(j,2)=-GBW; %minus because we want to maximize GBW (and the GA tries to minimize everything)
         disp([BW, Gain, GBW])
         
