@@ -1,4 +1,4 @@
-% clear all;
+clear all;
 format short g;
 % sweep all Values, get 
 
@@ -7,8 +7,8 @@ lb=  zeros(1,6);
 ub= ones(1,6); 
 V = length(lb);
 M = 2; %1 for benchmark 1 and 2, 2 for benchmark 3
-nbRunsAvg = 8; %take average nb of iterations of this amount of runs.
-PValues = [0.0:0.05:1]
+nbRunsAvg = 24; %take average nb of iterations of this amount of runs.
+PValues = [0.1:0.05:0.95]
 sdMutValues = 0.1;%[0.01:0.01:0.2]
 sdMutRec = 0.001;
 NValues = 24; %:16:64];  
@@ -18,8 +18,8 @@ NCMult = 1;%[0.2:0.05:4] %24; %[0.2:0.1:4]
 fprintf('Number of tests for each variable: \n \tP: %d, sdMut: %d, sdMutRec: %d, N: %d, NP: %d, NC: %d, avgNb: %d \n', ...
     length(PValues) , length(sdMutValues) , length(sdMutRec), length(NValues) , ...
     length(NPMult) , length(NCMult), nbRunsAvg);
-totalNbTests = length(PValues) * length(sdMutRec) * length(sdMutValues) * length(NValues) ...
-                * length(NPMult) * length(NCMult) * nbRunsAvg;
+totalNbTests = length(PValues) * length(sdMutValues) * length(NValues) ...
+                * length(NPMult) * length(NCMult) * length(nbRunsAvg);
 disp(['You asked to run ',num2str(totalNbTests), ' tests.'])
 
 maxRunTime = 40*3600; % in seconds
@@ -40,7 +40,7 @@ if runPossible
     startTime = cputime;
     results = sweepParameterValues(nbRunsAvg, PValues, sdMutValues, sdMutRec, NValues, NPMult, NCMult, totalNbTests, V, M, lb, ub);
     runTime = cputime - startTime
-    save Psweep.mat
+    save NCsweepResults2.mat
     % read back with dlmread('SweepResults.txt')
 else
     disp(['Not reasonable to run, try something different (',num2str(estimatedRunTimeMins),')']);

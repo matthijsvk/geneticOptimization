@@ -7,11 +7,11 @@ function [it,population,runTime]=myGA(f,V,M,lb,ub)
 % ub = upper bound vector.
 
 %% Settings
-verbose = 1;
+verbose = 0;
 
 %choose genetic operators: 
 %either using interpolation or random uniform crossover
-interpolationRecomb = 1; 
+interpolationRecomb = 0; 
 % choose whether to swith to different parameters after reaching the Pareto
 % curve
 variableParams = 0; % set to 1 to enable two stages
@@ -21,27 +21,27 @@ if interpolationRecomb == 0  % RUB
     intervalScalar_start = 0; intervalScalar_end = 0;
     
     % manually found values
-%     P_start = 1.0 ; 
+%     P_start = 0.5 ; 
 %     sd_mut_start=0.1; 
 %     sd_mut_rec_start= 0.01; 
 %     N_start=24;
 %     NP_start=12; 
 %     NC_start=24;
 
-% optimized values after genetic optimization: P  sd_mut sd_rec N NC/N NP/N
-% From myOptimizeGA.m after 11 iterations:    0.81 1.47 0.0255 24 0.88 1.78
+    % optimized values after genetic optimization: P  sd_mut sd_rec N NC/N NP/N
+    % From myOptimizeGA.m after 11 iterations:    0.81 1.47 0.0255 24 0.88 1.78
     P_start = 0.81 ; 
-    sd_mut_start=0.2; 
+    sd_mut_start=1.47; 
     sd_mut_rec_start= 0.0255; 
     N_start=24;
     NP_start=round(0.88*N_start); 
     NC_start=round(1.78*N_start);
-% this should give evaluateGA.m results of about
+    % this should give evaluateGA.m results of about
 %     average"          "33.5258"    "0.57423"
 %     "median"           "31"         "0.5"    
 %     "maximum"          "83"         "1.68"   
 %     "std deviation"    "9.92166"    "0.25529"
-    
+
 % different values once the Pareto curve is reached, if 'variableParams' is
 % set to 1
     P_end = 0.8;
@@ -53,7 +53,7 @@ if interpolationRecomb == 0  % RUB
 else
     % using Interpolation for genetics 
     sd_mut_rec_start = 0; sd_mut_rec_end = 0;
-    P_start = 1;	% Recomination probability
+    P_start = 0.9;	% Recomination probability
     sd_mut_start = 0.1; %standard deviation for mutation
     N_start = 24;         % Population size
     NP_start = 12;       % Size of the mating pool
@@ -62,7 +62,7 @@ else
     
     % different values once the Pareto curve is reached, if 'variableParams' is
 % set to 1
-    P_end = 1;	% Recomination probability
+    P_end = 0.9;	% Recomination probability
     sd_mut_end = 0.1; %standard deviation for mutation
     N_end = 24;         % Population size
     NP_end = 12;       % Size of the mating pool
@@ -109,7 +109,6 @@ while stopFlag==0
         NC = NC_start;
         intervalScalar = intervalScalar_start;
     end
-    
     parents= selectionTournament(population,NP,V,M,convergedFlag);
     offspring= geneticOperators(parents,NC,P,intervalScalar,sd_mut,sd_mut_rec,V,M,f,lb,ub);
     population = [ population ; offspring ];
@@ -129,7 +128,7 @@ while stopFlag==0
     
     % Visualization
     if verbose %&& mod(it,10)==0
-        pop = [unnormalizePopulation(population(:,1:V),lb,ub) , population(:,V+1:end)]
+        pop = [unnormalizePopulation(population(:,1:V),lb,ub) , population(:,V+1:end)];
         illustratePopulation(population,V,M,lb,ub,it);
         drawnow;
         pause(0.05);

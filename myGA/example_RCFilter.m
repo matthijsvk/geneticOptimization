@@ -22,12 +22,7 @@ lb=[ 1e3      minWidth     minWidth   0       0];
 ub=[ 10e4     maxWidth     maxWidth   1.8     1.8] ;
 
 % circuit 5
-%    w1            l1           w2          l2          wbias       Vbias  
-% lb=[ minWidth     minLength   minWidth   minLength  minWidth      0];
-% ub=[ maxWidth     maxLength   maxWidth   maxLength  maxWidth    1.8] ;
-
-% circuit 5
-%    w1            l1           w2          l2          wbias       Vbias  
+%    wNmos            lNmos          w2          l2          wbias       Vbias  
 % lb=[ minWidth     minLength   minWidth   minLength  minWidth      0];
 % ub=[ maxWidth     maxLength   maxWidth   maxLength  maxWidth    1.8] ;
 

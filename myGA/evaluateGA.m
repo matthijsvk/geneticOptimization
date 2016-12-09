@@ -18,18 +18,18 @@ j = 1;
 prevItAvg = 2; itAvg = 0;
 while abs(prevItAvg - itAvg) > 1
     disp('deviation too large, run more tests...')
-    for i=j:j+nbTests
-    %     disp(['now running test: ',num2str(i)])
-        [it,population,runTime]= myGA(@(x) benchmark(3,x,V),V,M,lb,ub);
+    parfor i=j:j+nbTests
+        disp(['now running test: ',num2str(i)])
+        [it,population,runTime]= myGA(@(x) benchmark(4,x,V),V,M,lb,ub);
         totIt(i,1) =  it;
         totRunTime(i,1) = runTime;
         disp([it, runTime])
 
         % draw so we can visualize the population results
-        illustratePopulation(population,V,M,lb,ub,it);
-        disp(population)
-        drawnow;
-        pause(0.5);
+%         illustratePopulation(population,V,M,lb,ub,it);
+%         disp(population)
+%         drawnow;
+%         pause(0.5);
     end
     prevItAvg = itAvg;
     itAvg = mean(totIt) ;

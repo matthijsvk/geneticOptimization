@@ -6,7 +6,6 @@ function population=initPopulation(N,V,M)
 % sobol random: better spread over parameter space => faster convergence
 p = sobolset(V);
 p = scramble(p,'MatousekAffineOwen');
-disp(N)
 population = net(p,N);
 
 population(:,V+M+1) = 1;  %all are in rank 1 to start off
