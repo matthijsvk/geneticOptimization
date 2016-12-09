@@ -95,7 +95,7 @@ switch nb
             totIt = zeros(nbTests,1);
             totRunTime = zeros(nbTests,1);
             for j=1:nbTests
-                [it,runTime]= myGA_sweep(@(y) benchmark(4,y,V),V,M,lb(i,:),ub(i,:),P(i,:), sd_mut(i,:),sd_mut_rec(i,:), N(i,:), NP(i,:), NC(i,:));
+                [it,runTime]= myGA_evaluator(@(y) benchmark(4,y,V),V,M,lb(i,:),ub(i,:),P(i,:), sd_mut(i,:),sd_mut_rec(i,:), N(i,:), NP(i,:), NC(i,:));
                 totIt(j) =  it;
                 totRunTime(j) = runTime;
             end
